@@ -1,186 +1,1079 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gongllgong | Creative Space</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* 기본 설정 */
-        :root {
-            --primary-color: #6a11cb;
-            --secondary-color: #2575fc;
-            --text-color: #333;
-            --bg-light: #ffffff;
-        }
+  <meta charset="UTF-8" />
+  <title>LEVEL ZERO 돌멩이 | 나는 누구인가를 묻는 진로실험</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="LEVEL ZERO 돌멩이 – '나는 누구인가?'라는 질문에서 시작하는 회복형 진로실험. 워크북, 커뮤니티, 워크숍을 통해 청년이 스스로를 다시 알아가도록 돕습니다.">
+  <style>
+    :root {
+      --bg: #0b0b10;
+      --bg-alt: #12121a;
+      --accent: #ffd45a;
+      --accent-soft: rgba(255, 212, 90, 0.12);
+      --text: #f5f5f7;
+      --text-muted: #a0a0b5;
+      --card: #181822;
+      --border: #262637;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --max-width: 1080px;
+    }
 
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Noto Sans KR', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #f4f7f6;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* 헤더 (메뉴) */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-sizing: border-box;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", sans-serif;
+      background: radial-gradient(circle at top, #202035 0, #050509 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #555;
-            margin-left: 20px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-        nav a:hover {
-            color: var(--primary-color);
-        }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* 히어로 섹션 (메인 배너) */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,5,10,0.96), rgba(5,5,10,0.8), rgba(5,5,10,0));
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .btn {
-            background: white;
-            color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fff 0, #ffd45a 35%, #ff9c4a 65%, #5a3cff 100%);
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.12), 0 12px 32px rgba(0,0,0,0.6);
+    }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
 
-        /* 콘텐츠 섹션 (카드 디자인) */
-        .features {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
 
-        .card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            text-align: center;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-        }
+    .nav-links a {
+      padding: 6px 0;
+      position: relative;
+    }
 
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ffd45a, #ff9c4a);
+      transition: width 0.18s ease-out;
+    }
 
-        /* 푸터 */
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: auto;
-        }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
 
-        /* 모바일 대응 */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            header { padding: 1rem; }
-        }
-    </style>
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 212, 90, 0.5);
+      background: radial-gradient(circle at top left, rgba(255,212,90,0.18), rgba(255,156,74,0.06));
+      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+      color: #111;
+      background-color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .nav-cta span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #ff4d4f;
+      box-shadow: 0 0 0 5px rgba(255,77,79,0.35);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(12,12,20,0.9);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255,212,90,0.16);
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4vw, 42px);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(135deg, #ffd45a, #ff9c4a, #ff6b94);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .hero-sub strong {
+      color: #f8f8ff;
+      font-weight: 600;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #ffd45a, #ff9c4a);
+      color: #151515;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.75);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(10,10,18,0.9);
+      color: var(--text-muted);
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-note strong {
+      color: var(--accent);
+    }
+
+    .hero-right-card {
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at top, rgba(255,212,90,0.18), rgba(10,10,18,0.96));
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-pill {
+      font-size: 11px;
+      color: #111;
+      background: rgba(255,255,255,0.9);
+      display: inline-flex;
+      padding: 4px 9px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-pill-circle {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ffd45a, #ff9c4a);
+    }
+
+    .hero-right-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .hero-right-sub {
+      font-size: 12px;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    .hero-list {
+      list-style: none;
+      font-size: 12px;
+      color: #222;
+      margin-bottom: 16px;
+    }
+
+    .hero-list li {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 6px;
+      align-items: flex-start;
+    }
+
+    .hero-list li span.bullet {
+      margin-top: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background: rgba(0,0,0,0.12);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 10px;
+      font-size: 11px;
+      color: #333;
+    }
+
+    .hero-stat-box {
+      flex: 1;
+      padding: 8px 9px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.86);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero-stat-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7b7b7b;
+    }
+
+    .hero-stat-value {
+      font-weight: 700;
+    }
+
+    .hero-blur {
+      position: absolute;
+      inset: auto auto -40px -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.45), rgba(255,255,255,0));
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    /* SECTION TITLES */
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    /* ABOUT */
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 26px;
+      align-items: flex-start;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
+      box-shadow: 0 16px 35px rgba(0,0,0,0.65);
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* PROGRAMS */
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .program-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, rgba(255,212,90,0.06), rgba(24,24,34,1));
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .program-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+
+    .program-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fdfdfd;
+    }
+
+    .program-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 18px 18px 10px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 20px;
+      font-size: 12px;
+    }
+
+    .timeline-col-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.07);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-meta {
+      font-size: 11px;
+      color: var(--accent);
+      white-space: nowrap;
+      min-width: 80px;
+    }
+
+    .timeline-text-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .timeline-text-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* LINKS */
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .link-card {
+      border-radius: 16px;
+      padding: 12px 12px 13px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+    }
+
+    .link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.7);
+      border-color: rgba(255,212,90,0.5);
+    }
+
+    .link-label {
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .link-main {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .link-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      word-break: break-all;
+    }
+
+    /* TEAM */
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .team-card {
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at top, #ffd45a, #ff6b94);
+      margin-bottom: 4px;
+    }
+
+    .team-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .team-role {
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .team-text {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* CONTACT */
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(255,212,90,0.08), rgba(16,16,26,0.98));
+      border: 1px solid rgba(255,212,90,0.35);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0,1fr);
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: #3a3214;
+      margin-bottom: 6px;
+    }
+
+    .contact-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .contact-sub {
+      font-size: 13px;
+      color: #4b3f14;
+    }
+
+    .contact-info {
+      font-size: 12px;
+      color: #2d2614;
+    }
+
+    .contact-info a {
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 18px 20px 26px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero-right-card {
+        order: -1;
+      }
+      .grid-2,
+      .timeline,
+      .contact-card {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .program-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .link-grid,
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding-inline: 16px;
+      }
+      .program-grid,
+      .link-grid,
+      .team-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero {
+        padding-top: 40px;
+      }
+    }
+  </style>
 </head>
 <body>
+<div class="page">
 
-    <header>
-        <div class="logo">Gongllgong</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+  <!-- NAV -->
+  <header>
+    <div class="nav">
+      <div class="logo-wrap">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <div>
+          <div class="logo-text-main">LEVEL ZERO 돌멩이</div>
+          <div class="logo-text-sub">나는 누구인가를 묻는 진로실험</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">소개</a>
+        <a href="#programs">프로그램</a>
+        <a href="#archive">활동 아카이브</a>
+        <a href="#team">팀</a>
+        <a href="#contact">문의</a>
+        <a class="nav-cta" href="#contact">
+          <span class="dot"></span>
+          참여 / 협업 문의
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <section class="hero">
-        <h1>새로운 시작, Gongllgong</h1>
-        <p>
-            여기는 당신의 아이디어가 현실이 되는 공간입니다.<br>
-            심플하지만 강력한 웹사이트를 경험해보세요.
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="top">
+      <div>
+        <div class="badge">
+          <span class="badge-pill">진로실험실</span>
+          <span>서울청년센터 성동 청년진로실험활동지원 선정 팀</span>
+        </div>
+        <h1 class="hero-title">
+          청년에게 다시 묻습니다,<br />
+          <span class="highlight">“나는 누구인가?”</span>
+        </h1>
+        <p class="hero-sub">
+          <strong>LEVEL ZERO 돌멩이</strong>는 <strong>무기력과 방향 상실</strong>을 겪는 청년들과 함께<br>
+          진로 이전의 질문, “나는 누구인가?”에서 출발하는 <strong>회복형 진로실험</strong>을 운영합니다.
         </p>
-        <a href="#" class="btn">자세히 알아보기</a>
+        <div class="hero-cta-row">
+          <a href="#programs" class="btn-primary">
+            워크북·워크숍 살펴보기 →
+          </a>
+          <a href="#contact" class="btn-ghost">
+            진로실험·협업 제안하기
+          </a>
+        </div>
+        <p class="hero-note">
+          <strong>자기이해 · 감정 회복 · ‘나로 살아보기’</strong>를 함께 실험해요.
+        </p>
+      </div>
+      <div class="hero-right-card" aria-label="LEVEL ZERO 실험 개요 카드">
+        <div class="hero-pill">
+          <span class="hero-pill-circle"></span>
+          Lv.0 회복형 진로탐색
+        </div>
+        <div class="hero-right-title">LEVEL ZERO 실험 구조</div>
+        <div class="hero-right-sub">“아는 것”에서 “사는 것”까지, 네 단계 진로실험</div>
+        <ul class="hero-list">
+          <li>
+            <span class="bullet"></span>
+            <div><strong>질문</strong> – “나는 누구인가?”를 다시 묻는 자기 진단</div>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <div><strong>탐색</strong> – 감정·가치·욕망을 들여다보는 워크북 활동</div>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <div><strong>실천</strong> – ‘나로 살아보기’ 회복 퀘스트 실행</div>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <div><strong>정리</strong> – 경험을 기록하고 다음 방향을 설계</div>
+          </li>
+        </ul>
+        <div class="hero-stats">
+          <div class="hero-stat-box">
+            <div class="hero-stat-label">실험 키워드</div>
+            <div class="hero-stat-value">무기력 · 자기이해 · 회복</div>
+          </div>
+          <div class="hero-stat-box">
+            <div class="hero-stat-label">실험 방식</div>
+            <div class="hero-stat-value">워크북 · 커뮤니티 · 워크숍</div>
+          </div>
+        </div>
+        <div class="hero-blur"></div>
+      </div>
     </section>
 
-    <section class="features">
-        <div class="card">
-            <h3>🎨 디자인</h3>
-            <p>깔끔하고 모던한 UI 디자인을 제공합니다. 사용자에게 최고의 경험을 선사하세요.</p>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-label">About</div>
+      <h2 class="section-title">LEVEL ZERO 돌멩이는 어떤 팀인가요?</h2>
+      <p class="section-desc">
+        우리는 “청년 문제”를 개인의 의지 부족이 아니라, <strong>‘자기 자신을 모른 채 살아온 상태’</strong>에서
+        비롯된 구조적 결과로 바라봅니다. 그래서 화려한 스펙 대신, <strong>질문과 회복</strong>에서 출발하는
+        진로 실험을 설계합니다.
+      </p>
+
+      <div class="grid-2">
+        <div>
+          <div class="card">
+            <div class="card-title">우리가 던지는 질문</div>
+            <div class="card-body">
+              “왜 이렇게까지 무기력하고, 길을 잃은 느낌이 들까?”<br/><br/>
+              대한민국 청년의 자살, 저출산, 이민, 구직 포기, 번아웃 뒤에는<br/>
+              <strong>“나는 누구인가를 묻지 못한 시간”</strong>이 쌓여 있다고 느꼈습니다.<br/><br/>
+              그래서 LEVEL ZERO는 묻습니다.<br/>
+              <strong>“나는 나를 알고 있을까?”</strong><br/>
+              이 질문을 함께 붙잡고 버텨볼 청년들을 초대합니다.
+            </div>
+          </div>
         </div>
-        <div class="card">
-            <h3>⚡ 퍼포먼스</h3>
-            <p>GitHub Pages를 통해 빠르고 안정적인 호스팅 환경을 무료로 이용할 수 있습니다.</p>
+        <div>
+          <div class="card">
+            <div class="card-title">우리가 만드는 장면</div>
+            <div class="card-body">
+              - 나의 감정과 욕망을 안전하게 꺼내볼 수 있는 작은 실험장<br/>
+              - 진로가 아니라 <strong>‘나라는 사람’</strong>이 먼저 등장하는 대화와 기록<br/>
+              - 혼자 멈춰 있던 돌멩이들이, 서로를 꺼내주는 회복의 순간들<br/>
+              <div class="pill-row">
+                <span class="pill">#나는누구인가</span>
+                <span class="pill">#회복형_진로탐색</span>
+                <span class="pill">#청년무기력</span>
+                <span class="pill">#자기이해</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card">
-            <h3>🚀 확장성</h3>
-            <p>언제든지 코드를 수정하여 새로운 기능을 추가하고 사이트를 발전시킬 수 있습니다.</p>
-        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Gongllgong. All rights reserved.</p>
-    </footer>
+    <!-- PROGRAMS -->
+    <section class="section" id="programs">
+      <div class="section-label">Programs</div>
+      <h2 class="section-title">우리가 함께 하는 실험들</h2>
+      <p class="section-desc">
+        LEVEL ZERO는 단순한 강의나 상담이 아니라, <strong>“직접 써보고, 말하고, 살아보는”</strong> 실험입니다.
+        워크북, 워크숍, 오픈랩 형태로 운영됩니다.
+      </p>
 
+      <div class="program-grid">
+        <div class="program-card">
+          <div class="program-tag">워크북</div>
+          <div class="program-title">Lv.0 자기이해 워크북</div>
+          <div class="program-meta">질문 · 감정 카드 · 인생 그래프</div>
+          <p>
+            “나는 누구인가?”를 한 번도 깊게 묻지 못했던 청년들을 위해,
+            <strong>질문 – 탐색 – 정리</strong> 흐름으로 설계된 자기이해 워크북입니다.
+          </p>
+        </div>
+        <div class="program-card">
+          <div class="program-tag">워크숍</div>
+          <div class="program-title">나로 살아보기 실험(워크숍)</div>
+          <div class="program-meta">소규모 대화형 · 3~5인</div>
+          <p>
+            워크북을 함께 쓰고 나눈 뒤, 각자 도출한 가치와 비전에 따라
+            <strong>“오늘 할 수 있는 가장 작은 회복 퀘스트”</strong>를 설계·실행합니다.
+          </p>
+        </div>
+        <div class="program-card">
+          <div class="program-tag">오픈랩</div>
+          <div class="program-title">Lv.0 오픈랩 & 아카이빙</div>
+          <div class="program-meta">실험 공유 · 기록 전시</div>
+          <p>
+            개별 실험 결과와 감정의 변화를 글·카드·전시 형태로 기록합니다.
+            청년 무기력과 자기이해의 연결고리를 함께 탐색합니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JINRO EXP / TIMELINE -->
+    <section class="section">
+      <div class="section-label">Experiment</div>
+      <h2 class="section-title">서울청년센터 성동 「진로실험실」에서</h2>
+      <p class="section-desc">
+        LEVEL ZERO 돌멩이는 2025년 서울청년센터 성동 <strong>청년진로실험활동지원 「진로실험실」</strong>에 선정되어,
+        1단계 “아는 것” 실험과 2단계 “사는 것” 실험을 이어가고 있습니다.
+      </p>
+
+      <div class="timeline">
+        <div>
+          <div class="timeline-col-title">1단계 · 아는 것</div>
+          <div class="timeline-item">
+            <div class="timeline-meta">2025. 5~7</div>
+            <div>
+              <div class="timeline-text-title">질문 설계 & 워크북 초안</div>
+              <div class="timeline-text-sub">
+                청년 무기력의 뿌리를 따라가며,<br/>
+                “어떤 질문과 행동이 나를 알게 하는가?”를 중심으로
+                Lv.0 워크북을 설계했습니다.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-meta">내부 실험</div>
+            <div>
+              <div class="timeline-text-title">팀 자체 회복 실험</div>
+              <div class="timeline-text-sub">
+                팀원 각자가 워크북을 직접 사용해보며
+                질문·구성과 난이도를 검증하고,
+                자기이해의 변화를 기록했습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="timeline-col-title">2단계 · 사는 것</div>
+          <div class="timeline-item">
+            <div class="timeline-meta">2025. 8~11</div>
+            <div>
+              <div class="timeline-text-title">워크숍 & 오픈 실험</div>
+              <div class="timeline-text-sub">
+                외부 청년과 함께 워크북 워크숍을 4회 이상 운영하며,<br/>
+                “나로 사는 작은 실험” 데이터를 수집합니다.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-meta">산출물</div>
+            <div>
+              <div class="timeline-text-title">워크북 · 실험 데이터 · 앱 기획</div>
+              <div class="timeline-text-sub">
+                최종 워크북 1종, 자기정체성 리플렉션 기록,
+                그리고 향후 디지털 앱으로 확장 가능한
+                기획 초안을 정리합니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHIVE / LINKS -->
+    <section class="section" id="archive">
+      <div class="section-label">Archive</div>
+      <h2 class="section-title">흔적을 남기고, 다음 실험을 준비합니다</h2>
+      <p class="section-desc">
+        우리의 질문과 실험은 다양한 채널에 쌓이고 있습니다.
+        아래 링크에서 <strong>기록, 사진, 워크북 스케치</strong> 등을 계속 업데이트할 예정입니다.
+      </p>
+
+      <div class="link-grid">
+        <a class="link-card" href="https://gongllgong.com" target="_blank" rel="noopener noreferrer">
+          <div class="link-label">홈페이지</div>
+          <div class="link-main">공일공(010) · LEVEL ZERO</div>
+          <div class="link-sub">https://gongllgong.com</div>
+        </a>
+        <a class="link-card" href="https://www.instagram.com/lv.0stone/" target="_blank" rel="noopener noreferrer">
+          <div class="link-label">Instagram</div>
+          <div class="link-main">@lv.0stone</div>
+          <div class="link-sub">LEVEL ZERO 돌멩이 실험 기록</div>
+        </a>
+        <a class="link-card" href="https://www.instagram.com/stone82_official/" target="_blank" rel="noopener noreferrer">
+          <div class="link-label">Instagram</div>
+          <div class="link-main">@stone82_official</div>
+          <div class="link-sub">공일공(010) 프로젝트 계정</div>
+        </a>
+        <a class="link-card" href="https://www.notion.so/Lv-0-1fd3b2a7f655806eb779feef423f9a32?pvs=4" target="_blank" rel="noopener noreferrer">
+          <div class="link-label">Notion</div>
+          <div class="link-main">Lv.0 프로젝트 노션</div>
+          <div class="link-sub">프로세스 · 실험 구조 · 내부 정리</div>
+        </a>
+        <a class="link-card" href="https://blog.naver.com/rnjsgmldus18" target="_blank" rel="noopener noreferrer">
+          <div class="link-label">Blog</div>
+          <div class="link-main">네이버 블로그</div>
+          <div class="link-sub">후기 · 에세이 · 실험 후기 기록</div>
+        </a>
+        <div class="link-card">
+          <div class="link-label">Coming soon</div>
+          <div class="link-main">Lv.0 워크북 / 퀘스트북 다운로드</div>
+          <div class="link-sub">
+            2단계 실험이 마무리되면, PDF 버전 워크북과 실험 리포트를 공개할 예정입니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section" id="team">
+      <div class="section-label">Team</div>
+      <h2 class="section-title">돌멩이들을 소개합니다</h2>
+      <p class="section-desc">
+        우리는 번아웃과 무기력의 시간을 통과한 뒤, 서로의 질문을 붙잡아준 사이에서 시작되었습니다.
+        화려한 이력 대신, <strong>“함께 던지는 질문”</strong>을 가장 중요한 자산으로 생각합니다.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="team-role">총괄 / 기획</div>
+          <div class="team-name">권희연</div>
+          <div class="team-text">
+            “나는 아무것도 하고 싶지 않은 사람이 아니라,
+            <strong>하고 싶은 게 너무 많은 사람</strong>이었다”는 깨달음에서 시작해,
+            이제는 다른 청년을 꺼내는 일을 실험 중입니다.
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="team-role">콘텐츠 / 후기</div>
+          <div class="team-name">권소영</div>
+          <div class="team-text">
+            남이 만든 일에 참여하던 프리랜서에서 벗어나,
+            <strong>내 질문에서 시작된 프로젝트</strong>를 만들기 위해 글과 구조를 다룹니다.
+            기록과 스토리텔링을 담당합니다.
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="team-role">운영 / 행정</div>
+          <div class="team-name">권아영</div>
+          <div class="team-text">
+            “안정적인 길이 정말 나에게 맞는가?”라는 물음에서 멈춰 섰다가,
+            비슷한 고민을 가진 청년들이 쉴 수 있는 <strong>치유적 공간</strong>을 함께 만들고 있습니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">함께 실험해보고 싶다면</h2>
+      <p class="section-desc">
+        워크숍 의뢰, 학교·기관 협업, 진로·무기력 관련 프로젝트 제안 등
+        어떤 형태의 대화라도 괜찮습니다. 짧은 소개와 함께 편하게 메일을 남겨 주세요.
+      </p>
+
+      <div class="contact-card">
+        <div>
+          <div class="contact-label">Collaboration · Workshop · Project</div>
+          <div class="contact-title">“이 질문을 함께 붙잡아볼까요?”</div>
+          <div class="contact-sub">
+            - 청년 무기력 / 자기이해 / 진로탐색 특강&워크숍<br/>
+            - 학교·공공·비영리 조직 대상 커스텀 Lv.0 프로그램<br/>
+            - 진로실험실 및 유사 사업과의 공동 기획 등
+          </div>
+        </div>
+        <div>
+          <div class="contact-info">
+            <p><strong>이메일</strong><br/>
+              <a href="mailto:rnjsgmldus18@naver.com">rnjsgmldus18@naver.com</a>
+            </p>
+            <p style="margin-top:8px;"><strong>인스타그램 DM</strong><br/>
+              <a href="https://www.instagram.com/lv.0stone/" target="_blank" rel="noopener noreferrer">@lv.0stone</a> 으로도 편하게 메시지 주세요.
+            </p>
+            <p style="margin-top:8px; font-size:11px;">
+              메일 제목 예시: [협업문의] LEVEL ZERO 워크숍 제안 / [상담문의] Lv.0 워크북 참여 문의
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© LEVEL ZERO 돌멩이 · 공일공(010)</div>
+      <div>서울청년센터 성동 2025 청년진로실험활동지원 「진로실험실」 참여팀</div>
+    </div>
+  </footer>
+</div>
 </body>
 </html>
