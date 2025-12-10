@@ -2,12 +2,26 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>공일공 – 개인 홈페이지</title>
+  <title>GongllGong | 하고 싶은 것을 하게 해주는 회사</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="공일공 개인 홈페이지 예시 템플릿" />
-
+  <meta name="description" content="GongllGong – 사람들의 눈이 다시 반짝👀✨ 이게 되게 하는 회사. 스스로 하고 싶은 일을 발견하고, 실제로 해볼 수 있도록 돕는 실험과 프로젝트를 만듭니다.">
   <style>
-    /* Reset & 기본 스타일 */
+    :root {
+      --bg: #050509;
+      --bg-alt: #11111a;
+      --accent: #ffd45a;
+      --accent-soft: rgba(255,212,90,0.12);
+      --accent-strong: #ff9c4a;
+      --text: #f5f5f7;
+      --text-muted: #a0a0b5;
+      --card: #181822;
+      --border: #262637;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --max-width: 1080px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,16 +29,11 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", sans-serif;
+      background: radial-gradient(circle at top, #242444 0, #050509 45%, #000 100%);
+      color: var(--text);
       line-height: 1.6;
-      color: #111827;
-      background: #f3f4f6;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -32,53 +41,72 @@
       text-decoration: none;
     }
 
-    ul {
-      list-style: none;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    /* 전체 레이아웃 */
     .page {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    main {
-      flex: 1;
-    }
-
-    /* 헤더 / 네비게이션 */
     header {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(249, 250, 251, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #e5e7eb;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,5,10,0.96), rgba(5,5,10,0.8), rgba(5,5,10,0));
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .nav {
-      max-width: 1024px;
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0.75rem 1.25rem;
+      padding: 14px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
     }
 
-    .logo {
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fff 0, #ffd45a 35%, #ff9c4a 65%, #5a3cff 100%);
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.12), 0 12px 32px rgba(0,0,0,0.6);
+    }
+
+    .logo-text-main {
       font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.06em;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-muted);
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
-      font-size: 0.95rem;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
     .nav-links a {
+      padding: 6px 0;
       position: relative;
     }
 
@@ -86,806 +114,982 @@
       content: "";
       position: absolute;
       left: 0;
-      bottom: -0.2rem;
+      bottom: -3px;
       width: 0;
       height: 2px;
-      background: #111827;
-      transition: width 0.2s ease;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #ffd45a, #ff9c4a);
+      transition: width 0.18s ease-out;
     }
 
     .nav-links a:hover::after {
       width: 100%;
     }
 
-    /* 모바일 메뉴 버튼 */
-    .nav-toggle {
-      display: none;
-      border: none;
-      background: none;
-      cursor: pointer;
-      padding: 0.3rem;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: #111827;
-      margin: 4px 0;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    /* Hero 섹션 */
-    .hero {
-      padding: 4rem 1.25rem 3rem;
-      background: radial-gradient(circle at top left, #e5e7eb, #f9fafb);
-    }
-
-    .hero-inner {
-      max-width: 1024px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-      gap: 2.5rem;
+    .nav-cta {
+      display: inline-flex;
       align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 212, 90, 0.5);
+      background: radial-gradient(circle at top left, rgba(255,212,90,0.18), rgba(255,156,74,0.06));
+      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+      color: #111;
+      background-color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .nav-cta span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #ff4d4f;
+      box-shadow: 0 0 0 5px rgba(255,77,79,0.35);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(12,12,20,0.9);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(255,212,90,0.16);
+      color: var(--accent);
     }
 
     .hero-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 1rem;
+      font-size: clamp(32px, 4vw, 42px);
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
     }
 
-    .hero-subtitle {
-      font-size: 1rem;
-      color: #4b5563;
-      margin-bottom: 1.5rem;
+    .hero-title span.highlight {
+      background: linear-gradient(135deg, #ffd45a, #ff9c4a, #ff6b94);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
-    .hero-buttons {
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .hero-sub strong {
+      color: #f8f8ff;
+      font-weight: 600;
+    }
+
+    .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 0.75rem 1.4rem;
-      font-size: 0.95rem;
-      font-weight: 500;
-      border: 1px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
+      gap: 12px;
       align-items: center;
-      gap: 0.35rem;
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        background 0.12s ease, border-color 0.12s ease;
+      margin-bottom: 18px;
     }
 
     .btn-primary {
-      background: #111827;
-      color: #f9fafb;
-      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.25);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.3);
-    }
-
-    .btn-outline {
-      background: white;
-      color: #111827;
-      border-color: #d1d5db;
-    }
-
-    .btn-outline:hover {
-      background: #f3f4f6;
-    }
-
-    .hero-meta {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.85rem;
-      color: #6b7280;
-    }
-
-    .hero-meta span {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-    }
-
-    .hero-avatar-wrap {
-      display: flex;
       justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #ffd45a, #ff9c4a);
+      color: #151515;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.75);
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    .hero-avatar {
-      width: 220px;
-      height: 220px;
-      border-radius: 999px;
-      background: conic-gradient(
-        from 180deg,
-        #e5e7eb,
-        #d1fae5,
-        #bfdbfe,
-        #e5e7eb
-      );
-      padding: 4px;
-      display: flex;
+    .btn-ghost {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
-    }
-
-    .hero-avatar-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: inherit;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      font-weight: 700;
-      color: #111827;
-    }
-
-    /* 공통 섹션 스타일 */
-    section {
-      padding: 3rem 1.25rem;
-    }
-
-    .section-inner {
-      max-width: 1024px;
-      margin: 0 auto;
-    }
-
-    .section-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-subtitle {
-      font-size: 0.95rem;
-      color: #6b7280;
-      margin-bottom: 1.8rem;
-    }
-
-    /* About 섹션 */
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2.5rem;
-    }
-
-    .about-text p + p {
-      margin-top: 0.75rem;
-    }
-
-    .about-list {
-      margin-top: 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .about-list span {
-      display: block;
-      color: #6b7280;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      margin-bottom: 0.2rem;
-    }
-
-    .about-card {
-      padding: 1.25rem;
-      border-radius: 1rem;
-      background: white;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-      font-size: 0.9rem;
-    }
-
-    .about-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .about-tags {
-      margin-top: 0.75rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tag {
-      padding: 0.2rem 0.55rem;
+      gap: 8px;
+      padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      font-size: 0.75rem;
-      background: #f9fafb;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(10,10,18,0.9);
+      color: var(--text-muted);
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
     }
 
-    /* 프로젝트 섹션 */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.5rem;
+    .hero-note {
+      font-size: 11px;
+      color: var(--text-muted);
     }
 
-    .project-card {
-      background: white;
-      border-radius: 1.25rem;
-      border: 1px solid #e5e7eb;
+    .hero-note strong {
+      color: var(--accent);
+    }
+
+    .hero-right-card {
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at top, rgba(255,212,90,0.2), rgba(10,10,18,0.96));
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 20px;
+      position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        border-color 0.12s ease;
     }
 
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-      border-color: #d1d5db;
+    .hero-pill {
+      font-size: 11px;
+      color: #111;
+      background: rgba(255,255,255,0.9);
+      display: inline-flex;
+      padding: 4px 9px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      align-items: center;
+      gap: 6px;
     }
 
-    .project-thumb {
-      height: 140px;
-      background: repeating-linear-gradient(
-        -45deg,
-        #eef2ff,
-        #eef2ff 10px,
-        #e0f2fe 10px,
-        #e0f2fe 20px
-      );
+    .hero-pill-circle {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ffd45a, #ff9c4a);
     }
 
-    .project-body {
-      padding: 1.1rem 1.2rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      flex: 1;
-    }
-
-    .project-title {
+    .hero-right-title {
+      font-size: 15px;
       font-weight: 600;
-      font-size: 1rem;
+      margin-bottom: 6px;
     }
 
-    .project-desc {
-      font-size: 0.9rem;
-      color: #4b5563;
-      flex: 1;
+    .hero-right-sub {
+      font-size: 12px;
+      color: #333;
+      margin-bottom: 12px;
     }
 
-    .project-meta {
-      font-size: 0.8rem;
-      color: #6b7280;
+    .hero-list {
+      list-style: none;
+      font-size: 12px;
+      color: #222;
+      margin-bottom: 16px;
     }
 
-    .project-links {
-      margin-top: 0.75rem;
+    .hero-list li {
       display: flex;
-      gap: 0.75rem;
-      font-size: 0.85rem;
-    }
-
-    .project-links a {
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      text-underline-offset: 3px;
-    }
-
-    /* 연락 섹션 */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 2rem;
+      gap: 6px;
+      margin-bottom: 6px;
       align-items: flex-start;
     }
 
-    .contact-card {
-      background: white;
-      border-radius: 1.25rem;
-      border: 1px solid #e5e7eb;
-      padding: 1.5rem 1.4rem;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
+    .hero-list li span.bullet {
+      margin-top: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      background: rgba(0,0,0,0.12);
     }
 
-    .contact-card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
+    .hero-stats {
+      display: flex;
+      gap: 10px;
+      font-size: 11px;
+      color: #333;
     }
 
-    .contact-row {
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
+    .hero-stat-box {
+      flex: 1;
+      padding: 8px 9px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.86);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
-    .contact-row span {
-      display: inline-block;
-      min-width: 60px;
-      color: #6b7280;
-      font-size: 0.8rem;
+    .hero-stat-label {
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-right: 0.5rem;
+      letter-spacing: 0.06em;
+      color: #7b7b7b;
     }
 
-    .contact-form {
+    .hero-stat-value {
+      font-weight: 700;
+    }
+
+    .hero-blur {
+      position: absolute;
+      inset: auto auto -40px -40px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.45), rgba(255,255,255,0));
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    /* SECTION TITLES */
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    /* LAYOUT HELPERS */
+
+    .grid-2 {
       display: grid;
-      gap: 0.75rem;
-      font-size: 0.9rem;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+      gap: 26px;
+      align-items: flex-start;
     }
 
-    .form-field label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
+    .card {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 18px 18px 16px;
+      box-shadow: 0 16px 35px rgba(0,0,0,0.65);
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
-    .form-field input,
-    .form-field textarea {
-      width: 100%;
-      padding: 0.55rem 0.7rem;
-      border-radius: 0.75rem;
-      border: 1px solid #d1d5db;
-      background: #f9fafb;
-      resize: vertical;
-      font-family: inherit;
-      font-size: inherit;
-      outline: none;
-      transition: border-color 0.12s ease, background 0.12s ease,
-        box-shadow 0.12s ease;
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #fdfdfd;
     }
 
-    .form-field input:focus,
-    .form-field textarea:focus {
-      border-color: #111827;
-      background: #ffffff;
-      box-shadow: 0 0 0 1px #11182710;
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
     }
 
-    .form-note {
-      font-size: 0.75rem;
-      color: #6b7280;
-      margin-top: 0.25rem;
+    .pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.02);
     }
 
-    .form-success {
-      display: none;
-      margin-top: 0.5rem;
-      font-size: 0.8rem;
-      color: #065f46;
+    /* SERVICES / PROGRAMS */
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
-    /* 푸터 */
+    .program-card {
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: linear-gradient(160deg, rgba(255,212,90,0.06), rgba(24,24,34,1));
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .program-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+
+    .program-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fdfdfd;
+    }
+
+    .program-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* FEATURED PROJECT (LEVEL ZERO) */
+
+    .timeline {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 18px 18px 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 20px;
+      font-size: 12px;
+    }
+
+    .timeline-col-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.07);
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-meta {
+      font-size: 11px;
+      color: var(--accent);
+      white-space: nowrap;
+      min-width: 80px;
+    }
+
+    .timeline-text-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fdfdfd;
+    }
+
+    .timeline-text-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* LINKS */
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .link-card {
+      border-radius: 16px;
+      padding: 12px 12px 13px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+    }
+
+    .link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.7);
+      border-color: rgba(255,212,90,0.5);
+    }
+
+    .link-label {
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .link-main {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .link-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      word-break: break-all;
+    }
+
+    /* FOUNDER / PROFILE */
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .team-card {
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: radial-gradient(circle at top, #ffd45a, #ff6b94);
+      margin-bottom: 4px;
+    }
+
+    .team-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .team-role {
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .team-text {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* CONTACT */
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(255,212,90,0.1), rgba(16,16,26,0.98));
+      border: 1px solid rgba(255,212,90,0.35);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0,1fr);
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: #3a3214;
+      margin-bottom: 6px;
+    }
+
+    .contact-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .contact-sub {
+      font-size: 13px;
+      color: #4b3f14;
+    }
+
+    .contact-info {
+      font-size: 12px;
+      color: #2d2614;
+    }
+
+    .contact-info a {
+      text-decoration: underline;
+    }
+
     footer {
-      border-top: 1px solid #e5e7eb;
-      padding: 1.5rem 1.25rem;
-      background: #f9fafb;
-      font-size: 0.8rem;
-      color: #6b7280;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 18px 20px 26px;
+      font-size: 11px;
+      color: var(--text-muted);
     }
 
     .footer-inner {
-      max-width: 1024px;
+      max-width: var(--max-width);
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      gap: 1rem;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      text-decoration: underline;
-      text-decoration-style: dotted;
-      text-underline-offset: 3px;
-    }
-
-    /* 반응형 */
     @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
       .hero {
-        padding-top: 3.25rem;
+        grid-template-columns: minmax(0,1fr);
       }
-
-      .hero-title {
-        font-size: 2.1rem;
+      .hero-right-card {
+        order: -1;
       }
-
-      .about-grid,
-      .projects-grid,
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
+      .grid-2,
+      .timeline,
+      .contact-card {
+        grid-template-columns: minmax(0,1fr);
       }
-
-      .projects-grid {
-        gap: 1.25rem;
+      .program-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .link-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .nav-links {
+        display: none;
       }
     }
 
     @media (max-width: 640px) {
-      .nav-links {
-        position: absolute;
-        inset: 100% 0 auto 0;
-        background: rgba(249, 250, 251, 0.98);
-        flex-direction: column;
-        padding: 0.75rem 1.25rem 1rem;
-        border-bottom: 1px solid #e5e7eb;
-        display: none;
+      .section {
+        padding-inline: 16px;
       }
-
-      .nav-links.is-open {
-        display: flex;
+      .program-grid,
+      .link-grid,
+      .team-grid {
+        grid-template-columns: minmax(0,1fr);
       }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      .hero-title {
-        font-size: 1.8rem;
-      }
-
-      .hero-avatar {
-        width: 180px;
-        height: 180px;
-      }
-
-      .about-list {
-        grid-template-columns: minmax(0, 1fr);
+      .hero {
+        padding-top: 40px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- 헤더 -->
-    <header>
-      <nav class="nav">
-        <div class="logo">공일공</div>
+<div class="page">
 
-        <button class="nav-toggle" aria-label="메뉴 열기/닫기">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <ul class="nav-links">
-          <li><a href="#about">소개</a></li>
-          <li><a href="#projects">프로젝트</a></li>
-          <li><a href="#contact">연락</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <!-- Hero -->
-      <section class="hero">
-        <div class="hero-inner">
-          <div>
-            <h1 class="hero-title">안녕하세요, <br />여기는 당신의 공간입니다.</h1>
-            <p class="hero-subtitle">
-              이 문장은 자유롭게 바꿔서 사용하시면 됩니다. <br />
-              직업, 관심사, 하고 싶은 말들을 간단히 적어보세요.
-            </p>
-
-            <div class="hero-buttons">
-              <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
-              <a href="#contact" class="btn btn-outline">연락하기</a>
-            </div>
-
-            <div class="hero-meta">
-              <span>📍 서울 · Remote 가능</span>
-              <span>💼 포트폴리오 / 개인 홈페이지</span>
-            </div>
-          </div>
-
-          <div class="hero-avatar-wrap">
-            <div class="hero-avatar">
-              <div class="hero-avatar-inner">
-                <span>🙂</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about">
-        <div class="section-inner">
-          <h2 class="section-title">소개</h2>
-          <p class="section-subtitle">
-            간단한 자기소개와 지금 하고 있는 일, 관심 있는 분야 등을 적어보세요.
-          </p>
-
-          <div class="about-grid">
-            <div class="about-text">
-              <p>
-                안녕하세요. 여기에 자기소개를 한두 문단 정도 적어두면 좋습니다.
-                어떤 일을 하는 사람인지, 무엇을 좋아하고 앞으로 무엇을
-                하고 싶은지 자유롭게 작성해보세요.
-              </p>
-              <p>
-                이 페이지는 심플한 템플릿이라 텍스트만 바꾸셔도 바로 나만의
-                홈페이지처럼 사용할 수 있습니다. 아래 정보들도 필요에 따라
-                수정하거나 지워도 괜찮아요.
-              </p>
-
-              <div class="about-list">
-                <div>
-                  <span>이름</span>
-                  홍길동
-                </div>
-                <div>
-                  <span>역할</span>
-                  기획자 / 디자이너 / 개발자 등
-                </div>
-                <div>
-                  <span>관심사</span>
-                  웹, 서비스, 사이드 프로젝트
-                </div>
-                <div>
-                  <span>현재 상태</span>
-                  구직 중 / 재직 중 / 프리랜서
-                </div>
-              </div>
-            </div>
-
-            <div class="about-card">
-              <h3>주요 스킬 & 키워드</h3>
-              <p>
-                자신을 잘 표현해 줄 키워드를 적어보세요. 어떤 경험을 했고,
-                어떤 일을 잘할 수 있는지를 한눈에 보여주는 용도입니다.
-              </p>
-
-              <div class="about-tags">
-                <span class="tag">#기획</span>
-                <span class="tag">#디자인</span>
-                <span class="tag">#프론트엔드</span>
-                <span class="tag">#사이드프로젝트</span>
-                <span class="tag">#문제해결</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects">
-        <div class="section-inner">
-          <h2 class="section-title">프로젝트</h2>
-          <p class="section-subtitle">
-            여기에는 포트폴리오나 사이드 프로젝트, 자랑하고 싶은 작업들을
-            정리해두면 좋습니다.
-          </p>
-
-          <div class="projects-grid">
-            <!-- Project 1 -->
-            <article class="project-card">
-              <div class="project-thumb"></div>
-              <div class="project-body">
-                <h3 class="project-title">프로젝트 제목 1</h3>
-                <p class="project-desc">
-                  어떤 프로젝트인지 한두 문장으로 설명해보세요. 어떤 문제를
-                  해결했고, 어떤 역할을 맡았는지 간단하게 정리하면 좋습니다.
-                </p>
-                <div class="project-meta">2024 · 개인 사이드 프로젝트</div>
-                <div class="project-links">
-                  <a href="#" target="_blank">사이트 바로가기</a>
-                  <a href="#" target="_blank">GitHub</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 2 -->
-            <article class="project-card">
-              <div class="project-thumb"></div>
-              <div class="project-body">
-                <h3 class="project-title">프로젝트 제목 2</h3>
-                <p class="project-desc">
-                  팀 프로젝트라면 팀 규모, 본인 역할(예: 기획, 디자인,
-                  프론트엔드 개발 등)을 함께 적어두면 더 좋습니다.
-                </p>
-                <div class="project-meta">2023 · 팀 프로젝트</div>
-                <div class="project-links">
-                  <a href="#" target="_blank">발표자료</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- Project 3 -->
-            <article class="project-card">
-              <div class="project-thumb"></div>
-              <div class="project-body">
-                <h3 class="project-title">프로젝트 제목 3</h3>
-                <p class="project-desc">
-                  학교 과제, 회사 프로젝트, 실험적인 토이 프로젝트 등 어떤
-                  것이든 상관 없습니다. 자신을 잘 나타내는 작업이면 충분해요.
-                </p>
-                <div class="project-meta">2022 · 학습/연습용</div>
-                <div class="project-links">
-                  <a href="#" target="_blank">노션 정리</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact">
-        <div class="section-inner">
-          <h2 class="section-title">연락</h2>
-          <p class="section-subtitle">
-            협업, 제안, 가벼운 인사 등 언제든 편하게 연락 주세요.
-          </p>
-
-          <div class="contact-grid">
-            <div class="contact-card">
-              <h3>기본 정보</h3>
-              <div class="contact-row">
-                <span>이메일</span> your.email@example.com
-              </div>
-              <div class="contact-row">
-                <span>GitHub</span>
-                <a href="https://github.com/your-id" target="_blank"
-                  >github.com/your-id</a
-                >
-              </div>
-              <div class="contact-row">
-                <span>LinkedIn</span>
-                <a
-                  href="https://www.linkedin.com/in/your-id"
-                  target="_blank"
-                  >linkedin.com/in/your-id</a
-                >
-              </div>
-              <div class="contact-row">
-                <span>기타</span> 블로그 / 노션 / 인스타 등
-              </div>
-            </div>
-
-            <div class="contact-card">
-              <h3>간단한 메모 남기기</h3>
-              <!-- 이 폼은 실제 메일 전송은 안 되고, JS로 메시지만 띄워줍니다 -->
-              <form class="contact-form" id="contact-form">
-                <div class="form-field">
-                  <label for="name">이름</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="이름을 입력하세요"
-                    required
-                  />
-                </div>
-                <div class="form-field">
-                  <label for="email">이메일</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="연락 가능한 이메일"
-                    required
-                  />
-                </div>
-                <div class="form-field">
-                  <label for="message">메시지</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="4"
-                    placeholder="하고 싶은 말을 자유롭게 적어주세요 :)"
-                    required
-                  ></textarea>
-                  <p class="form-note">
-                    ※ 실제 메일 전송 기능은 연결되어 있지 않습니다. 원하는
-                    메일 서비스(폼 스플리, 구글폼 등)를 나중에 연결할 수 있어요.
-                  </p>
-                </div>
-                <button type="submit" class="btn btn-primary">
-                  메시지 보내기(연습)
-                </button>
-                <p class="form-success" id="form-success">
-                  메시지가 전송된 것처럼 처리되었습니다 :) 실제로는 저장되지
-                  않습니다.
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <div class="footer-inner">
-        <div>© <span id="year"></span> 공일공. All rights reserved.</div>
-        <div class="footer-links">
-          <a href="#top">맨 위로</a>
-          <a href="#about">소개</a>
-          <a href="#projects">프로젝트</a>
+  <!-- NAV -->
+  <header>
+    <div class="nav">
+      <div class="logo-wrap">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <div>
+          <div class="logo-text-main">GongllGong</div>
+          <div class="logo-text-sub">하고 싶은 것을 하게 해주는 회사</div>
         </div>
       </div>
-    </footer>
-  </div>
+      <div class="nav-links">
+        <a href="#about">소개</a>
+        <a href="#services">우리가 하는 일</a>
+        <a href="#project-lv0">PROJECT: LEVEL ZERO</a>
+        <a href="#archive">아카이브</a>
+        <a href="#founder">Founder</a>
+        <a href="#contact" class="nav-cta">
+          <span class="dot"></span>
+          협업 / 의뢰 문의
+        </a>
+      </div>
+    </div>
+  </header>
 
-  <script>
-    // 현재 연도 표시
-    document.getElementById("year").textContent =
-      new Date().getFullYear().toString();
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="top">
+      <div>
+        <div class="badge">
+          <span class="badge-pill">GongllGong</span>
+          <span>사람들이 하고 싶은 일을 하게 해주는 회사</span>
+        </div>
+        <h1 class="hero-title">
+          사람들 눈이 다시<br />
+          <span class="highlight">반짝 👀✨ 이게 되게 만드는 일</span>
+        </h1>
+        <p class="hero-sub">
+          많은 사람들이 이렇게 말합니다. <br>
+          “사실… 내가 뭘 하고 싶은지도 모르겠어.”<br><br>
+          <strong>GongllGong</strong>은 그 지점에서 시작합니다.<br>
+          내가 어떤 사람인지, 무엇을 좋아하고, 무엇을 할 때 눈이 반짝이는지<br>
+          함께 알아가고 <strong>“진짜 하고 싶은 일”을 실제로 해보게 만드는 회사</strong>입니다.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#services" class="btn-primary">
+            어떤 일을 함께 하나요? →
+          </a>
+          <a href="#contact" class="btn-ghost">
+            협업 / 프로젝트 제안하기
+          </a>
+        </div>
+        <p class="hero-note">
+          <strong>하고 싶은 걸 아는 것 → 작은 시도 → 진짜로 해보는 것</strong>까지, 함께 가는 파트너.
+        </p>
+      </div>
 
-    // 모바일 메뉴 토글
-    const navToggle = document.querySelector(".nav-toggle");
-    const navLinks = document.querySelector(".nav-links");
+      <div class="hero-right-card" aria-label="GongllGong 실험 구조 카드">
+        <div class="hero-pill">
+          <span class="hero-pill-circle"></span>
+          GongllGong Method
+        </div>
+        <div class="hero-right-title">사람들이 하고 싶은 것을 하게 되는 4단계</div>
+        <div class="hero-right-sub">“몰라요”에서 “해볼게요”까지, 작지만 구체적인 흐름</div>
+        <ul class="hero-list">
+          <li>
+            <span class="bullet"></span>
+            <div><strong>1. 관찰</strong> – 지금 눈이 죽어있는 지점, 숨 쉬는 지점부터 함께 보기</div>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <div><strong>2. 발견</strong> – “좋아했던 것들, 끌리는 것들”을 말과 글로 꺼내보기</div>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <div><strong>3. 설계</strong> – 오늘 당장 할 수 있는 <strong>가장 작은 시도</strong>로 쪼개기</div>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <div><strong>4. 실행·기록</strong> – 실제로 해보고, 몸과 감정을 기준으로 다시 정리하기</div>
+          </li>
+        </ul>
+        <div class="hero-stats">
+          <div class="hero-stat-box">
+            <div class="hero-stat-label">키워드</div>
+            <div class="hero-stat-value">하고 싶은 일 · 자기이해 · 회복</div>
+          </div>
+          <div class="hero-stat-box">
+            <div class="hero-stat-label">형태</div>
+            <div class="hero-stat-value">워크숍 · 실험 프로젝트 · 1:1 동행</div>
+          </div>
+        </div>
+        <div class="hero-blur"></div>
+      </div>
+    </section>
 
-    navToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("is-open");
-    });
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-label">About</div>
+      <h2 class="section-title">GongllGong은 어떤 회사인가요?</h2>
+      <p class="section-desc">
+        GongllGong은 <strong>“하고 싶은 것을 하게 해주는 회사”</strong>입니다.<br>
+        하지만 그 전에 꼭 거쳐야 하는 단계가 있습니다. 바로,<br>
+        <strong>“나는 어떤 사람이고, 무엇을 할 때 눈이 반짝👀✨이는지 아는 것.”</strong><br><br>
+        많은 사람들은 의지가 부족해서 멈춰 있는 것이 아니라,<br>
+        “진짜 내가 원하는 게 뭔지” 스스로에게 물어볼 기회가 없었다고 느낍니다.<br>
+        우리는 바로 그 질문부터 함께 붙잡습니다.
+      </p>
 
-    // 네비게이션 클릭 시 부드러운 스크롤
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        const targetId = this.getAttribute("href");
-        if (!targetId || targetId === "#") return;
+      <div class="grid-2">
+        <div>
+          <div class="card">
+            <div class="card-title">내가 만들고 싶은 회사의 장면</div>
+            <div class="card-body">
+              저는 <strong>사람들 눈이 다시 반짝이는 순간</strong>을 가장 좋아합니다.<br><br>
+              - “나 사실 이런 거 해보고 싶었어요”가 처음 튀어나오는 순간<br>
+              - 머릿속에만 있던 상상이 <strong>구체적인 문장과 계획</strong>이 되는 순간<br>
+              - “해도 될까요?”가 “한 번 해볼게요”로 바뀌는 순간<br><br>
+              GongllGong은 이런 장면들을 더 자주, 더 많이 만들어내기 위해 존재합니다.
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">우리가 믿는 것</div>
+            <div class="card-body">
+              - 하고 싶은 게 “없는 사람”은 거의 없습니다. <br>
+              - 다만, <strong>말할 언어와 안전한 공간</strong>이 부족했을 뿐이라고 믿습니다.<br>
+              - “해야 하는 일”만 쫓다 보면, <strong>“하고 싶은 나”</strong>가 사라집니다.<br><br>
+              그래서 GongllGong은,<br>
+              <strong>말하기 · 써보기 · 실제로 해보기</strong>를 천천히 같이 해보는 실험들을 설계합니다.
+              <div class="pill-row">
+                <span class="pill">#하고싶은것을하게해주는</span>
+                <span class="pill">#눈반짝프로젝트</span>
+                <span class="pill">#자기이해</span>
+                <span class="pill">#작은시도</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        e.preventDefault();
-        const target = document.querySelector(targetId);
-        if (!target) return;
+    <!-- SERVICES / WHAT WE DO -->
+    <section class="section" id="services">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">GongllGong이 함께 하는 일</h2>
+      <p class="section-desc">
+        우리는 거창한 목표보다, <strong>“오늘 당장 할 수 있는 가장 작은 실험”</strong>을 중요하게 생각합니다.<br>
+        아래 서비스/프로젝트들은 서로 조합되어, 사람이나 조직에 맞는 형태로 설계됩니다.
+      </p>
 
-        const headerOffset = 64; // 대략적인 헤더 높이
-        const rect = target.getBoundingClientRect();
-        const offsetTop = rect.top + window.scrollY - headerOffset;
+      <div class="program-grid">
+        <div class="program-card">
+          <div class="program-tag">개인 / 소규모</div>
+          <div class="program-title">하고 싶은 일 발견 실험</div>
+          <div class="program-meta">1:1 / 2~4인 소규모 대화</div>
+          <p>
+            “솔직히 뭘 하고 싶은지 모르겠어요.”에서 시작하는 실험입니다.<br>
+            좋아했던 것들, 싫어했던 것들, 반복해서 떠오르는 상상을 함께 정리하고<br>
+            <strong>“지금 여기에서 할 수 있는 작은 시도 1개”</strong>까지 연결합니다.
+          </p>
+        </div>
 
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
-        });
+        <div class="program-card">
+          <div class="program-tag">워크숍</div>
+          <div class="program-title">눈 반짝👀 워크숍</div>
+          <div class="program-meta">학교 · 기관 · 모임 맞춤 설계</div>
+          <p>
+            청년, 직장인, 커뮤니티 등 대상에 맞춰<br>
+            자기이해·진로·하고 싶은 일에 대한 워크숍을 진행합니다.<br>
+            말하기와 기록을 중심으로, <strong>“각자 한 걸음씩”</strong>을 목표로 합니다.
+          </p>
+        </div>
 
-        // 모바일 메뉴 닫기
-        navLinks.classList.remove("is-open");
-      });
-    });
+        <div class="program-card">
+          <div class="program-tag">프로젝트</div>
+          <div class="program-title">공동 기획 & 브랜딩</div>
+          <div class="program-meta">프로젝트 디자인 · 콘텐츠</div>
+          <p>
+            하고 싶은 일을 주제로 한 프로젝트, 진로·정체성 관련 사업 등을<br>
+            함께 기획하고, 이야기 구조와 언어, 경험 설계를 돕습니다.<br>
+            <strong>프로그램 기획 ↔ 참가자 경험</strong>을 모두 보는 파트너가 됩니다.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    // 연락 폼 - submit 이벤트 가짜 처리
-    const form = document.getElementById("contact-form");
-    const successMsg = document.getElementById("form-success");
+    <!-- FEATURED PROJECT: LEVEL ZERO -->
+    <section class="section" id="project-lv0">
+      <div class="section-label">Project</div>
+      <h2 class="section-title">PROJECT · LEVEL ZERO 돌멩이</h2>
+      <p class="section-desc">
+        GongllGong 안에서 진행 중인 대표 프로젝트 중 하나는<br>
+        청년의 무기력과 진로 이전의 질문을 다루는 <strong>「LEVEL ZERO 돌멩이」</strong>입니다.<br>
+        서울청년센터 성동 <strong>청년진로실험활동지원 ‘진로실험실’</strong> 선정 프로젝트로 운영되고 있습니다.
+      </p>
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      successMsg.style.display = "block";
+      <div class="timeline">
+        <div>
+          <div class="timeline-col-title">질문</div>
+          <div class="timeline-item">
+            <div class="timeline-meta">핵심 문장</div>
+            <div>
+              <div class="timeline-text-title">“나는 누구인가, 그리고 무엇을 원하는가?”</div>
+              <div class="timeline-text-sub">
+                스펙과 직업이 아니라, <strong>“나라는 사람”</strong>에 대한 질문을 다시 꺼내보는 실험입니다.<br>
+                진로가 아니라 <strong>정체성 · 감정 · 욕망</strong>에서 출발합니다.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-meta">형태</div>
+            <div>
+              <div class="timeline-text-title">워크북 + 소규모 워크숍</div>
+              <div class="timeline-text-sub">
+                자기이해 워크북을 함께 써보고, 소규모로 나누며,<br>
+                각자에게 맞는 <strong>“오늘 할 수 있는 회복 퀘스트”</strong>를 설계합니다.
+              </div>
+            </div>
+          </div>
+        </div>
 
-      // 폼 초기화
-      form.reset();
+        <div>
+          <div class="timeline-col-title">실험 & 산출물</div>
+          <div class="timeline-item">
+            <div class="timeline-meta">실험</div>
+            <div>
+              <div class="timeline-text-title">청년 진로실험실</div>
+              <div class="timeline-text-sub">
+                서울청년센터 성동 「진로실험실」을 통해<br>
+                내부 실험 → 외부 참여자 워크숍 → 기록/데이터 아카이빙을 진행 중입니다.
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-meta">기록</div>
+            <div>
+              <div class="timeline-text-title">워크북 · 이야기 · 데이터</div>
+              <div class="timeline-text-sub">
+                - Lv.0 자기이해 워크북<br>
+                - 참여자의 말과 문장을 담은 스토리<br>
+                - “하고 싶은 걸 모른다”는 말 뒤에 있는 패턴 데이터들을 정리하고 있습니다.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      // 몇 초 뒤 메시지 숨기기
-      setTimeout(() => {
-        successMsg.style.display = "none";
-      }, 3000);
-    });
-  </script>
+    <!-- ARCHIVE / LINKS -->
+    <section class="section" id="archive">
+      <div class="section-label">Archive</div>
+      <h2 class="section-title">흔적과 기록</h2>
+      <p class="section-desc">
+        GongllGong에서 진행되는 실험, 프로젝트, 생각 조각들은<br>
+        여러 채널에 조금씩 쌓이고 있습니다.
+      </p>
+
+      <div class="link-grid">
+        <a class="link-card" href="https://www.instagram.com/stone82_official/" target="_blank" rel="noopener noreferrer">
+          <div class="link-label">Instagram</div>
+          <div class="link-main">@stone82_official</div>
+          <div class="link-sub">GongllGong 공식 계정 · 프로젝트 소식</div>
+        </a>
+
+        <a class="link-card" href="https://blog.naver.com/rnjsgmldus18" target="_blank" rel="noopener noreferrer">
+          <div class="link-label">Blog</div>
+          <div class="link-main">네이버 블로그</div>
+          <div class="link-sub">에세이 · 기록 · 프로젝트 후기</div>
+        </a>
+
+        <div class="link-card">
+          <div class="link-label">Project</div>
+          <div class="link-main">LEVEL ZERO 돌멩이</div>
+          <div class="link-sub">
+            청년 진로실험 프로젝트 관련 소개와 워크북 일부는<br>
+            향후 공개 예정입니다.
+          </div>
+        </div>
+
+        <div class="link-card">
+          <div class="link-label">Coming soon</div>
+          <div class="link-main">워크숍 / 프로그램 안내 페이지</div>
+          <div class="link-sub">
+            “하고 싶은 일 발견 실험” 등 정기 프로그램 안내가<br>
+            이 홈페이지에 순차적으로 업데이트될 예정입니다.
+          </div>
+        </div>
+
+        <div class="link-card">
+          <div class="link-label">Newsletter</div>
+          <div class="link-main">눈 반짝 레터</div>
+          <div class="link-sub">
+            하고 싶은 것을 둘러싼 고민, 작은 실험 이야기를 담은<br>
+            메일 레터를 준비하고 있습니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="section" id="founder">
+      <div class="section-label">Founder</div>
+      <h2 class="section-title">GongllGong을 만드는 사람</h2>
+      <p class="section-desc">
+        화려한 이력 대신, <strong>“사람들 눈이 다시 반짝이는 장면”</strong>을 가장 중요하게 여깁니다.<br>
+        내가 먼저 그 과정을 통과해봤기에, 그 길을 같이 걸어보고 싶습니다.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="avatar" aria-hidden="true"></div>
+          <div class="team-role">Founder</div>
+          <div class="team-name">GongllGong</div>
+          <div class="team-text">
+            나는 <strong>사람들이 자기가 하고 싶은 일을 하게 되는 순간</strong>에 가장 큰 기쁨을 느낍니다.<br><br>
+            “나는 뭘 하고 싶은지도 모르겠어.”라고 말하는 사람들과 함께<br>
+            아주 작은 문장 하나, 한 걸음의 경험을 만들어가는 일을 하고 있습니다.<br><br>
+            이 회사는 결국, <strong>사람 한 명 한 명의 눈이 다시 반짝👀✨이게 되는 장면</strong>을
+            더 많이 만들기 위해 존재합니다.
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-role">Value</div>
+          <div class="team-name">우리가 중요하게 여기는 것들</div>
+          <div class="team-text">
+            - 사람을 숫자나 스펙이 아닌, <strong>이야기와 감정</strong>으로 보기<br>
+            - “해야 한다”보다 <strong>“하고 싶다”</strong>에서 시작하기<br>
+            - 정답 대신, <strong>함께 실험해보는 태도</strong><br>
+            - 아무 일도 하지 않는 시간이 아니라, <strong>나를 알아가는 시간이 쌓이도록</strong> 돕기
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">함께 실험해보고 싶다면</h2>
+      <p class="section-desc">
+        워크숍 의뢰, 프로젝트 공동 기획, 진로·정체성 관련 프로그램 제안 등<br>
+        편한 언어로 이야기 걸어주세요. “이런 것도 되나요?” 하는 가벼운 질문도 환영입니다.
+      </p>
+
+      <div class="contact-card">
+        <div>
+          <div class="contact-label">Collaboration · Workshop · Project</div>
+          <div class="contact-title">“당신의 하고 싶은 일을 함께 보고 싶어요.”</div>
+          <div class="contact-sub">
+            - 하고 싶은 일을 찾는 개인/소규모 실험<br>
+            - 학교·기관·단체 대상 워크숍 / 프로그램 설계<br>
+            - 진로·정체성·무기력 관련 프로젝트 공동 기획
+          </div>
+        </div>
+        <div>
+          <div class="contact-info">
+            <p><strong>이메일</strong><br/>
+              <a href="mailto:90n9ll90n9@gmail.com">90n9ll90n9@gmail.com</a>
+            </p>
+            <p style="margin-top:8px;"><strong>인스타그램 DM</strong><br/>
+              <a href="https://www.instagram.com/stone82_official/" target="_blank" rel="noopener noreferrer">@stone82_official</a>
+              로도 편하게 메시지 주세요.
+            </p>
+            <p style="margin-top:8px; font-size:11px;">
+              메일 제목 예시:<br>
+              [협업문의] GongllGong 워크숍 제안<br>
+              [프로젝트문의] 하고 싶은 일 발견 실험 제안<br>
+              [개인문의] 하고 싶은 일을 함께 찾아보고 싶어요
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© GongllGong</div>
+      <div>사람들이 하고 싶은 것을 하게 해주는 회사</div>
+    </div>
+  </footer>
+</div>
 </body>
 </html>
