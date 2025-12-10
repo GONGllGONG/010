@@ -5,29 +5,22 @@
   <title>GongllGong | 하고 싶은 것을 하게 해주는 회사</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="GongllGong – 사람들의 눈이 다시 반짝👀✨ 이게 되도록, 하고 싶은 일을 발견하고 실제로 해볼 수 있게 돕는 회사입니다. 1:1/그룹 실험, 프로젝트, 워크숍으로 '하고 싶은 것'을 함께 찾아갑니다.">
-  <meta property="og:title" content="GongllGong | 하고 싶은 것을 하게 해주는 회사">
-  <meta property="og:description" content="사람들의 눈이 다시 반짝👀✨ 이게 되도록, 하고 싶은 것을 진짜 하게 해주는 회사 GongllGong.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gongllgong.com/">
   <style>
     :root {
-      --bg: #050816;
-      --bg-soft: #0b1020;
-      --bg-soft-alt: #0f1223;
-      --text-main: #f9fafb;
-      --text-sub: #a1a7c5;
-      --accent: #ff8a5c;
-      --accent-2: #ffce68;
-      --accent-3: #7c3bff;
-      --accent-soft: rgba(255,138,92,0.12);
-      --accent-emerald: #00d2a0;
-      --border-soft: #262b4a;
-      --card-bg: #0f1325;
-      --radius-lg: 18px;
-      --radius-xl: 32px;
-      --shadow-soft: 0 26px 60px rgba(0,0,0,0.65);
-      --max-width: 1120px;
-      --nav-height: 66px;
+      --bg: #f9fafb;
+      --bg-soft: #f3f4f6;
+      --text-main: #111827;
+      --text-sub: #6b7280;
+      --accent: #fb923c;
+      --accent-soft: rgba(251,146,60,0.08);
+      --accent-alt: #4f46e5;
+      --border-soft: #e5e7eb;
+      --card-bg: #ffffff;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 12px 30px rgba(15,23,42,0.08);
+      --max-width: 960px;
+      --nav-height: 60px;
     }
 
     * {
@@ -43,10 +36,7 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", sans-serif;
-      background:
-        radial-gradient(circle at top left, #251b57 0, transparent 50%),
-        radial-gradient(circle at bottom right, #122140 0, transparent 55%),
-        var(--bg);
+      background: var(--bg);
       color: var(--text-main);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
@@ -75,32 +65,32 @@
     .section {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 56px 24px;
+      padding: 56px 20px;
     }
 
     .section--tight {
-      padding-block: 42px;
+      padding-block: 40px;
     }
 
     /* HEADER / NAV */
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 20;
       height: var(--nav-height);
-      backdrop-filter: blur(20px);
-      background: linear-gradient(to bottom, rgba(6,9,24,0.97), rgba(6,9,24,0.9), rgba(6,9,24,0));
-      border-bottom: 1px solid rgba(38,43,74,0.8);
+      backdrop-filter: blur(14px);
+      background: rgba(249,250,251,0.93);
+      border-bottom: 1px solid rgba(229,231,235,0.9);
     }
 
     .nav {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 10px 24px;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
     }
 
     .logo-wrap {
@@ -110,38 +100,31 @@
     }
 
     .logo-mark {
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
       border-radius: 999px;
-      background:
-        conic-gradient(from 180deg, #ff8a5c, #ffce68, #00d2a0, #7c3bff, #ff8a5c);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.07),
-                  0 12px 25px rgba(0,0,0,0.7);
-    }
-
-    .logo-mark::after {
-      content: "👀";
-      position: absolute;
-      inset: 0;
+      background: radial-gradient(circle at 30% 20%, #fff 0, #fed7aa 45%, #fed7aa 60%, #fb923c 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.85), transparent 55%);
+      font-size: 16px;
+      box-shadow: 0 6px 14px rgba(15,23,42,0.15);
     }
 
     .logo-main {
       font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 0.05em;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
     .logo-sub {
       font-size: 11px;
       color: var(--text-sub);
+    }
+
+    nav {
+      position: relative;
     }
 
     .nav-links {
@@ -165,7 +148,7 @@
       width: 0;
       height: 2px;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      background: linear-gradient(90deg, var(--accent), var(--accent-alt));
       transition: width 0.18s ease-out;
     }
 
@@ -176,22 +159,20 @@
 
     .nav-cta {
       border-radius: 999px;
-      padding: 7px 16px;
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      color: #111827;
+      padding: 7px 14px;
+      background: #111827;
+      color: #f9fafb;
       font-size: 13px;
-      font-weight: 700;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.7);
-      white-space: nowrap;
+      font-weight: 600;
     }
 
     .nav-toggle {
       display: none;
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.6);
-      background: rgba(15,23,42,0.9);
+      border: 1px solid #d1d5db;
+      background: #ffffff;
       align-items: center;
       justify-content: center;
       cursor: pointer;
@@ -201,7 +182,7 @@
       width: 16px;
       height: 2px;
       border-radius: 999px;
-      background: #e5e7eb;
+      background: #111827;
       position: relative;
     }
 
@@ -213,7 +194,7 @@
       width: 16px;
       height: 2px;
       border-radius: 999px;
-      background: #e5e7eb;
+      background: #111827;
       transition: transform 0.18s ease-out, top 0.18s ease-out, opacity 0.18s ease-out;
     }
 
@@ -235,32 +216,32 @@
     /* HERO */
 
     .hero {
-      padding-top: 64px;
-      padding-bottom: 40px;
+      padding-top: 48px;
+      padding-bottom: 32px;
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 40px;
       align-items: center;
     }
 
     .hero-label {
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent-2);
-      margin-bottom: 10px;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 8px;
     }
 
     .hero-title {
-      font-size: clamp(32px, 4.4vw, 44px);
-      line-height: 1.18;
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.2;
       letter-spacing: -0.03em;
-      margin-bottom: 16px;
-      max-width: 16em;
+      margin-bottom: 12px;
+      max-width: 18em;
     }
 
     .hero-highlight {
-      background: linear-gradient(120deg, #ff8a5c, #ffce68, #7c3bff);
+      background: linear-gradient(120deg, #fb923c, #f97316);
       -webkit-background-clip: text;
       color: transparent;
       white-space: nowrap;
@@ -269,7 +250,7 @@
     .hero-sub {
       font-size: 15px;
       color: var(--text-sub);
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       max-width: 36em;
     }
 
@@ -279,16 +260,16 @@
     }
 
     .hero-quote {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-sub);
-      padding: 10px 13px;
+      padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.5);
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .hero-quote span.icon {
@@ -298,34 +279,33 @@
     .hero-cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .btn-primary {
       border-radius: 999px;
-      padding: 11px 22px;
+      padding: 10px 20px;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 600;
       border: none;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #111827;
+      background: #111827;
+      color: #f9fafb;
       cursor: pointer;
-      box-shadow: 0 16px 34px rgba(0,0,0,0.8);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       text-decoration: none;
     }
 
     .btn-secondary {
       border-radius: 999px;
-      padding: 10px 18px;
+      padding: 9px 16px;
       font-size: 13px;
-      font-weight: 600;
-      border: 1px solid rgba(148,163,184,0.7);
-      background: rgba(15,23,42,0.9);
+      font-weight: 500;
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
       color: var(--text-sub);
       cursor: pointer;
       display: inline-flex;
@@ -335,160 +315,92 @@
     }
 
     .hero-note {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-sub);
     }
 
     .hero-note strong {
-      color: var(--accent-emerald);
+      color: var(--accent-alt);
     }
 
-    .hero-right {
-      position: relative;
-    }
-
-    .hero-card-main {
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.06), transparent 55%), var(--card-bg);
+    .hero-card {
+      background: #ffffff;
       border-radius: var(--radius-xl);
-      padding: 18px 18px 16px;
+      padding: 16px 16px 14px;
+      border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148,163,184,0.4);
-      position: relative;
-      z-index: 2;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .hero-pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 10px;
-      font-size: 12px;
+      margin-bottom: 8px;
+      font-size: 11px;
     }
 
     .hero-pill {
       border-radius: 999px;
-      padding: 4px 10px;
+      padding: 4px 9px;
       background: var(--accent-soft);
-      color: var(--accent-2);
+      color: #b45309;
       font-weight: 600;
     }
 
-    .hero-pill-outline {
-      border-radius: 999px;
-      padding: 4px 10px;
-      border: 1px dashed rgba(148,163,184,0.7);
-      color: var(--text-sub);
-    }
-
     .hero-card-title {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
     }
 
     .hero-card-sub {
       font-size: 13px;
       color: var(--text-sub);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .hero-list {
       list-style: none;
       font-size: 13px;
       color: var(--text-sub);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .hero-list li {
       display: flex;
       gap: 8px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .hero-list span.dot {
       margin-top: 7px;
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      background: var(--accent);
     }
 
     .hero-tagline {
-      font-size: 12px;
-      color: var(--accent-emerald);
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 6px;
-      flex-wrap: wrap;
-    }
-
-    .hero-tagline span.badge {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(0,210,160,0.08);
-      border: 1px solid rgba(0,210,160,0.7);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .hero-float {
-      position: absolute;
-      inset: auto -6px -30px auto;
-      width: 190px;
-      padding: 10px 12px;
-      border-radius: 16px;
-      background: #020617;
-      color: #e5e7eb;
       font-size: 11px;
-      box-shadow: 0 18px 34px rgba(0,0,0,0.9);
-    }
-
-    .hero-float-tag {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #9ca3ff;
-      margin-bottom: 4px;
-    }
-
-    .hero-float-main {
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .hero-float-sub {
-      font-size: 10px;
-      color: #cbd5ff;
-    }
-
-    .hero-bg-circle {
-      position: absolute;
-      inset: -40px -40px auto auto;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,138,92,0.45), transparent 60%);
-      opacity: 0.9;
-      z-index: 1;
+      color: var(--accent-alt);
+      font-weight: 500;
+      margin-top: 4px;
     }
 
     /* SECTION GENERIC */
 
     .section-label {
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-2);
-      margin-bottom: 6px;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 4px;
     }
 
     .section-title {
-      font-size: 22px;
-      font-weight: 800;
+      font-size: 20px;
+      font-weight: 700;
       margin-bottom: 8px;
     }
 
@@ -496,13 +408,13 @@
       font-size: 14px;
       color: var(--text-sub);
       margin-bottom: 18px;
-      max-width: 42em;
+      max-width: 40em;
     }
 
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
     .grid-2 {
@@ -512,30 +424,30 @@
     }
 
     .card {
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.03), transparent 55%), var(--card-bg);
+      background: var(--card-bg);
       border-radius: var(--radius-lg);
       padding: 14px 14px 16px;
       border: 1px solid var(--border-soft);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-      font-size: 14px;
+      box-shadow: var(--shadow-soft);
+      font-size: 13px;
     }
 
     .card-title {
-      font-weight: 700;
+      font-weight: 600;
       margin-bottom: 4px;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .card-tag {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent-2);
+      letter-spacing: 0.13em;
+      color: var(--accent-alt);
       margin-bottom: 3px;
     }
 
     .card-body {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-sub);
     }
 
@@ -545,9 +457,9 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 11px;
+      padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.9);
+      background: #ffffff;
       border: 1px solid var(--border-soft);
       font-size: 12px;
       color: var(--text-sub);
@@ -558,20 +470,20 @@
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      background: var(--accent);
     }
 
     .service-list {
       list-style: none;
       padding-left: 0;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-sub);
       margin-top: 6px;
     }
 
     .service-list li::before {
       content: "• ";
-      color: var(--accent-2);
+      color: var(--accent);
     }
 
     /* PROCESS */
@@ -580,33 +492,33 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0,1fr));
       gap: 10px;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .process-step {
-      background: radial-gradient(circle at top, rgba(255,255,255,0.04), transparent 55%), var(--card-bg);
-      border-radius: 16px;
+      background: #ffffff;
+      border-radius: 14px;
       padding: 10px 10px 12px;
       border: 1px solid var(--border-soft);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.65);
+      box-shadow: var(--shadow-soft);
     }
 
     .process-step-num {
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-2);
+      letter-spacing: 0.13em;
+      color: var(--accent-alt);
       margin-bottom: 3px;
     }
 
     .process-step-title {
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 600;
       margin-bottom: 4px;
     }
 
     .process-step-body {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-sub);
     }
 
@@ -614,82 +526,82 @@
 
     .project-card {
       border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top left, #4338ca, #020617);
+      background: #111827;
       color: #f9fafb;
-      padding: 20px 18px 20px;
+      padding: 18px 18px 18px;
       display: grid;
-      grid-template-columns: minmax(0,1.3fr) minmax(0,1fr);
-      gap: 18px;
-      box-shadow: 0 26px 60px rgba(0,0,0,0.9);
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 16px;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.5);
     }
 
     .project-tag {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #bfdbfe;
+      letter-spacing: 0.13em;
+      color: #9ca3af;
       margin-bottom: 4px;
     }
 
     .project-title {
-      font-size: 18px;
-      font-weight: 800;
+      font-size: 17px;
+      font-weight: 700;
       margin-bottom: 6px;
     }
 
     .project-body {
-      font-size: 14px;
-      color: #e5e7ff;
-      margin-bottom: 10px;
+      font-size: 13px;
+      color: #e5e7eb;
+      margin-bottom: 8px;
     }
 
     .project-pill-row {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .project-pill {
-      padding: 4px 9px;
+      padding: 4px 8px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.6);
-      border: 1px solid rgba(191,219,254,0.6);
+      background: rgba(31,41,55,0.8);
+      border: 1px solid rgba(75,85,99,0.9);
     }
 
     .project-side-card {
-      border-radius: 18px;
-      padding: 12px 12px 14px;
-      background: rgba(15,23,42,0.7);
-      border: 1px solid rgba(148,163,184,0.6);
-      font-size: 13px;
+      border-radius: 14px;
+      padding: 10px 10px 12px;
+      background: #0f172a;
+      border: 1px solid rgba(55,65,81,0.9);
+      font-size: 12px;
     }
 
     .project-side-title {
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 600;
       margin-bottom: 4px;
     }
 
     .project-side-body {
       font-size: 12px;
-      color: #e5e7ff;
+      color: #e5e7eb;
     }
 
     /* STORY / FAQ */
 
     .story-quote {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-sub);
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.6);
-      margin-bottom: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+      margin-bottom: 10px;
     }
 
     .story-quote strong {
-      color: var(--accent-2);
+      color: var(--accent-alt);
     }
 
     .story-meta {
@@ -700,10 +612,10 @@
     .faq-item {
       border-radius: 14px;
       padding: 10px 12px;
-      background: rgba(15,23,42,0.8);
+      background: #ffffff;
       border: 1px solid var(--border-soft);
       margin-bottom: 8px;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .faq-q {
@@ -725,34 +637,32 @@
     }
 
     .link-card {
-      border-radius: 16px;
-      padding: 12px 12px 14px;
-      background: rgba(15,23,42,0.9);
+      border-radius: 14px;
+      padding: 12px 12px 13px;
+      background: #ffffff;
       border: 1px solid var(--border-soft);
-      box-shadow: 0 16px 34px rgba(0,0,0,0.7);
-      font-size: 13px;
-      transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
+      box-shadow: var(--shadow-soft);
+      font-size: 12px;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
     }
 
     .link-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 42px rgba(0,0,0,0.85);
-      border-color: rgba(255,206,104,0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(15,23,42,0.12);
     }
 
     .link-label {
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent-2);
+      letter-spacing: 0.12em;
+      color: var(--accent-alt);
       margin-bottom: 3px;
     }
 
     .link-main {
-      font-size: 14px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 600;
       margin-bottom: 2px;
-      color: var(--text-main);
     }
 
     .link-sub {
@@ -770,17 +680,17 @@
     }
 
     .apply-card {
-      border-radius: 20px;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 60%), var(--card-bg);
+      border-radius: var(--radius-lg);
+      background: #ffffff;
       border: 1px solid var(--border-soft);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.75);
-      padding: 16px 16px 18px;
-      font-size: 14px;
+      box-shadow: var(--shadow-soft);
+      padding: 14px 14px 16px;
+      font-size: 13px;
     }
 
     .apply-title {
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 600;
       margin-bottom: 4px;
     }
 
@@ -788,30 +698,29 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.13em;
-      color: var(--accent-2);
-      margin-bottom: 4px;
+      color: var(--accent);
+      margin-bottom: 3px;
     }
 
     .apply-body {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-sub);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .apply-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 16px;
+      gap: 6px;
+      padding: 8px 14px;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #111827;
+      background: #111827;
+      color: #f9fafb;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.8);
     }
 
     .apply-caption {
@@ -822,27 +731,26 @@
 
     .contact-card {
       border-radius: var(--radius-xl);
-      background: #020617;
+      background: #111827;
       color: #f9fafb;
-      padding: 18px 18px 20px;
+      padding: 18px 18px 18px;
       display: grid;
       grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
-      gap: 18px;
-      box-shadow: 0 24px 50px rgba(0,0,0,0.9);
-      border: 1px solid rgba(31,41,55,0.9);
+      gap: 16px;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.5);
     }
 
     .contact-label {
       font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9ca3ff;
+      letter-spacing: 0.13em;
+      color: #9ca3af;
       margin-bottom: 5px;
     }
 
     .contact-title {
-      font-size: 20px;
-      font-weight: 800;
+      font-size: 18px;
+      font-weight: 700;
       margin-bottom: 6px;
     }
 
@@ -861,57 +769,24 @@
     }
 
     .contact-info a {
-      color: #facc15;
+      color: #fde68a;
       text-decoration: underline;
     }
 
     .contact-note {
       font-size: 11px;
-      color: #a5b4fc;
+      color: #d1d5db;
       margin-top: 4px;
-    }
-
-    /* SCROLL TO TOP */
-
-    .scroll-top {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.95);
-      border: 1px solid rgba(148,163,184,0.7);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-      box-shadow: 0 16px 34px rgba(0,0,0,0.85);
-      z-index: 40;
-    }
-
-    .scroll-top.is-visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-
-    .scroll-top:not(.is-visible) {
-      transform: translateY(8px);
     }
 
     /* FOOTER */
 
     footer {
-      padding: 18px 24px 26px;
+      padding: 16px 20px 22px;
       border-top: 1px solid var(--border-soft);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-sub);
-      background: rgba(3,7,18,0.95);
+      background: #ffffff;
     }
 
     .footer-inner {
@@ -923,34 +798,15 @@
       flex-wrap: wrap;
     }
 
-    /* REVEAL ANIMATION */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* RESPONSIVE */
-
-    @media (max-width: 1024px) {
-      .section {
-        padding-inline: 20px;
-      }
-    }
 
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: minmax(0,1fr);
-        padding-top: 40px;
+        padding-top: 36px;
       }
-      .hero-right {
-        order: -1;
+      .hero-card {
+        margin-top: 10px;
       }
       .grid-3 {
         grid-template-columns: repeat(2, minmax(0,1fr));
@@ -971,10 +827,10 @@
       }
       .nav-links {
         position: absolute;
-        inset: var(--nav-height) 0 auto 0;
+        inset: calc(var(--nav-height) - 4px) 0 auto 0;
         padding: 10px 20px 14px;
-        background: radial-gradient(circle at top left, rgba(37,99,235,0.35), transparent 60%), rgba(3,7,18,0.98);
-        border-bottom: 1px solid rgba(31,41,55,0.8);
+        background: #ffffff;
+        border-bottom: 1px solid var(--border-soft);
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
@@ -993,13 +849,12 @@
       .nav-cta {
         width: 100%;
         text-align: center;
-        justify-content: center;
       }
     }
 
     @media (max-width: 640px) {
       .section {
-        padding-inline: 18px;
+        padding-inline: 16px;
         padding-block: 40px;
       }
       .grid-3,
@@ -1009,7 +864,7 @@
         grid-template-columns: minmax(0,1fr);
       }
       .hero-title {
-        font-size: 28px;
+        font-size: 26px;
       }
       .hero-sub {
         font-size: 14px;
@@ -1018,14 +873,6 @@
       .btn-secondary {
         width: 100%;
         justify-content: center;
-      }
-      .hero-card-main {
-        padding-inline: 14px;
-      }
-      .hero-float {
-        position: static;
-        margin-top: 10px;
-        width: auto;
       }
     }
   </style>
@@ -1037,7 +884,7 @@
   <header>
     <div class="nav">
       <div class="logo-wrap">
-        <div class="logo-mark" aria-hidden="true"></div>
+        <div class="logo-mark">👀</div>
         <div>
           <div class="logo-main">GongllGong</div>
           <div class="logo-sub">하고 싶은 것을 하게 해주는 회사</div>
@@ -1061,7 +908,7 @@
   <main>
     <!-- HERO -->
     <section class="section hero" id="top">
-      <div class="reveal">
+      <div>
         <div class="hero-label">GONGLLGONG</div>
         <h1 class="hero-title">
           사람들 눈이 다시<br/>
@@ -1091,33 +938,24 @@
         </p>
       </div>
 
-      <aside class="hero-right reveal" aria-label="GongllGong 방식 요약 카드">
-        <div class="hero-bg-circle" aria-hidden="true"></div>
-        <div class="hero-card-main">
-          <div class="hero-pill-row">
-            <span class="hero-pill">눈 반짝 프로젝트</span>
-            <span class="hero-pill-outline">하고 싶은 일 발견 & 실험</span>
-          </div>
-          <div class="hero-card-title">GongllGong이 하는 일</div>
-          <div class="hero-card-sub">
-            “하고 싶은 걸 모른다”는 지점에서 출발해,<br/>
-            다시 나를 알고, 실험하고, 구체적인 한 걸음까지 이어줍니다.
-          </div>
-          <ul class="hero-list">
-            <li><span class="dot"></span><div><strong>발견</strong> – 내가 어떤 사람인지, 무엇에 끌리는지 정리하는 자기 이해</div></li>
-            <li><span class="dot"></span><div><strong>언어화</strong> – 막연한 마음을 문장과 그림, 키워드로 꺼내기</div></li>
-            <li><span class="dot"></span><div><strong>실험</strong> – “진짜 한 번 해볼까?”를 위한 가장 작은 시도 설계</div></li>
-            <li><span class="dot"></span><div><strong>동행</strong> – 그 과정에서 눈이 다시 반짝👀✨ 이게 되는지 함께 지켜보기</div></li>
-          </ul>
-          <div class="hero-tagline">
-            <span class="badge">MISSION</span>
-            <span>사람들이 <strong>자기가 하고 싶은 일을 알고, 실제로 살아보게 하는 것</strong></span>
-          </div>
+      <aside class="hero-card" aria-label="GongllGong 방식 요약 카드">
+        <div class="hero-pill-row">
+          <span class="hero-pill">눈 반짝 프로젝트</span>
+          <span class="hero-pill">하고 싶은 일 발견 & 실험</span>
         </div>
-        <div class="hero-float">
-          <div class="hero-float-tag">FOR</div>
-          <div class="hero-float-main">“이제 뭐하고 살아야 하지?” 자주 떠오르는 사람들</div>
-          <div class="hero-float-sub">무기력·번아웃 이후, 다음 챕터를 찾는 이들을 위한 실험실.</div>
+        <div class="hero-card-title">GongllGong이 하는 일</div>
+        <div class="hero-card-sub">
+          “하고 싶은 걸 모른다”는 지점에서 출발해,<br/>
+          다시 나를 알고, 실험하고, 구체적인 한 걸음까지 이어줍니다.
+        </div>
+        <ul class="hero-list">
+          <li><span class="dot"></span><div><strong>발견</strong> – 내가 어떤 사람인지, 무엇에 끌리는지 정리하는 자기 이해</div></li>
+          <li><span class="dot"></span><div><strong>언어화</strong> – 막연한 마음을 문장과 키워드로 꺼내기</div></li>
+          <li><span class="dot"></span><div><strong>실험</strong> – “진짜 한 번 해볼까?”를 위한 가장 작은 시도 설계</div></li>
+          <li><span class="dot"></span><div><strong>동행</strong> – 그 과정에서 눈이 다시 반짝👀✨ 이게 되는지 함께 지켜보기</div></li>
+        </ul>
+        <div class="hero-tagline">
+          사람마다 다른 “하고 싶은 것”을 발견하고, 삶 안에서 한 번 살아보게 합니다.
         </div>
       </aside>
     </section>
@@ -1133,7 +971,7 @@
       </p>
 
       <div class="grid-3">
-        <article class="card reveal">
+        <article class="card">
           <div class="card-tag">WHY</div>
           <div class="card-title">왜 이 일을 하나요?</div>
           <div class="card-body">
@@ -1144,7 +982,7 @@
             그걸 살짝이라도 살아보는 장면을 만드는 일을 합니다.
           </div>
         </article>
-        <article class="card reveal">
+        <article class="card">
           <div class="card-tag">WHAT</div>
           <div class="card-title">우리는 무엇을 만드나요?</div>
           <div class="card-body">
@@ -1154,7 +992,7 @@
             <strong>생각에서 그치지 않고, 삶까지 가 닿게 하는 구조</strong>를 설계합니다.
           </div>
         </article>
-        <article class="card reveal">
+        <article class="card">
           <div class="card-tag">HOW</div>
           <div class="card-title">어떤 방식으로 함께하나요?</div>
           <div class="card-body">
@@ -1178,7 +1016,7 @@
       </p>
 
       <div class="grid-3">
-        <article class="card reveal">
+        <article class="card">
           <div class="card-title">1. 생각할 틈이 없어서</div>
           <div class="card-body">
             시험, 입시, 취업, 생계까지 오느라<br/>
@@ -1187,7 +1025,7 @@
             그래서 우리는 먼저, <strong>멈추고 돌아볼 수 있는 시간</strong>을 선물합니다.
           </div>
         </article>
-        <article class="card reveal">
+        <article class="card">
           <div class="card-title">2. 비교 속에서 잃어버려서</div>
           <div class="card-body">
             “남들 다 하는 거니까”, “이게 맞는 길이래”라는 말 속에서<br/>
@@ -1195,7 +1033,7 @@
             우리는 <strong>타인의 기준이 아니라, 나의 기준</strong>을 다시 세우도록 돕습니다.
           </div>
         </article>
-        <article class="card reveal">
+        <article class="card">
           <div class="card-title">3. 말로 꺼내본 적이 없어서</div>
           <div class="card-body">
             마음속 이미지로만 떠다니는 하고 싶은 일은<br/>
@@ -1220,8 +1058,8 @@
         <span>1:1 · 소규모 그룹 · 기관/학교 협업 형태로 운영</span>
       </div>
 
-      <div class="grid-3" style="margin-top: 12px;">
-        <article class="card reveal">
+      <div class="grid-3" style="margin-top: 10px;">
+        <article class="card">
           <div class="card-tag">01</div>
           <div class="card-title">하고 싶은 일 발견 실험</div>
           <div class="card-body">
@@ -1233,7 +1071,7 @@
             </ul>
           </div>
         </article>
-        <article class="card reveal">
+        <article class="card">
           <div class="card-tag">02</div>
           <div class="card-title">하고 싶은 일 언어화 & 설계</div>
           <div class="card-body">
@@ -1245,7 +1083,7 @@
             </ul>
           </div>
         </article>
-        <article class="card reveal">
+        <article class="card">
           <div class="card-tag">03</div>
           <div class="card-title">실제 실험 & 동행</div>
           <div class="card-body">
@@ -1269,7 +1107,7 @@
       </p>
 
       <div class="process-steps">
-        <article class="process-step reveal">
+        <article class="process-step">
           <div class="process-step-num">STEP 01</div>
           <div class="process-step-title">나를 차분히 들여다보기</div>
           <div class="process-step-body">
@@ -1277,7 +1115,7 @@
             감정·상황·사람을 기준으로 나를 다시 이해해봅니다.
           </div>
         </article>
-        <article class="process-step reveal">
+        <article class="process-step">
           <div class="process-step-num">STEP 02</div>
           <div class="process-step-title">하고 싶은 것 후보 만들기</div>
           <div class="process-step-body">
@@ -1285,7 +1123,7 @@
             크기·정도 상관 없이, 다양한 후보를 만들어 봅니다.
           </div>
         </article>
-        <article class="process-step reveal">
+        <article class="process-step">
           <div class="process-step-num">STEP 03</div>
           <div class="process-step-title">실험 버전으로 줄이기</div>
           <div class="process-step-body">
@@ -1293,7 +1131,7 @@
             2~6주 안에 해볼 수 있는 ‘테스트’를 함께 설계합니다.
           </div>
         </article>
-        <article class="process-step reveal">
+        <article class="process-step">
           <div class="process-step-num">STEP 04</div>
           <div class="process-step-title">실험하고, 다시 정리하기</div>
           <div class="process-step-body">
@@ -1313,7 +1151,7 @@
         청년 진로실험 프로젝트 <strong>“LEVEL ZERO 돌멩이”</strong>입니다.
       </p>
 
-      <article class="project-card reveal">
+      <article class="project-card">
         <div>
           <div class="project-tag">진로 실험 프로젝트</div>
           <div class="project-title">LEVEL ZERO 돌멩이 – “나는 누구인가?”에서 시작하는 진로실험</div>
@@ -1349,7 +1187,7 @@
       <div class="section-label">STORY</div>
       <h2 class="section-title">이 회사는 어떤 마음에서 시작됐나요?</h2>
       <div class="grid-2">
-        <div class="reveal">
+        <div>
           <div class="story-quote">
             “사람들이 꿈을 포기하고, 방향을 잃은 채, 눈빛이 텅 비어가는 모습을 보면서<br/>
             <strong>‘살려야겠다’</strong>는 마음이 들었습니다.  
@@ -1360,7 +1198,7 @@
             거창한 영웅이 되기보다, <strong>옆에서 등을 살짝 밀어주는 동료</strong>로 남고 싶습니다.
           </div>
         </div>
-        <div class="reveal">
+        <div>
           <div class="section-label" style="margin-bottom:4px;">FAQ</div>
           <div class="faq-item">
             <div class="faq-q">Q. 커리어 코칭/상담이랑 뭐가 달라요?</div>
@@ -1397,7 +1235,7 @@
       </p>
 
       <div class="apply-grid">
-        <article class="apply-card reveal">
+        <article class="apply-card">
           <div class="apply-tag">PERSONAL / SMALL GROUP</div>
           <div class="apply-title">개인 · 소규모 눈 반짝 실험 신청</div>
           <div class="apply-body">
@@ -1414,7 +1252,7 @@
           </div>
         </article>
 
-        <article class="apply-card reveal">
+        <article class="apply-card">
           <div class="apply-tag">ORGANIZATION / SCHOOL</div>
           <div class="apply-title">기관 · 학교 · 단체와의 협업 제안</div>
           <div class="apply-body">
@@ -1443,17 +1281,17 @@
       </p>
 
       <div class="link-grid">
-        <a class="link-card reveal" href="https://www.instagram.com/stone82_official/" target="_blank" rel="noopener noreferrer">
+        <a class="link-card" href="https://www.instagram.com/stone82_official/" target="_blank" rel="noopener noreferrer">
           <div class="link-label">INSTAGRAM</div>
           <div class="link-main">@stone82_official</div>
           <div class="link-sub">GongllGong · 프로젝트 소식과 짧은 기록들</div>
         </a>
-        <a class="link-card reveal" href="https://blog.naver.com/rnjsgmldus18" target="_blank" rel="noopener noreferrer">
+        <a class="link-card" href="https://blog.naver.com/rnjsgmldus18" target="_blank" rel="noopener noreferrer">
           <div class="link-label">BLOG</div>
           <div class="link-main">네이버 블로그</div>
           <div class="link-sub">조금 더 긴 글, 에세이, 실험 후기</div>
         </a>
-        <div class="link-card reveal">
+        <div class="link-card">
           <div class="link-label">COMING SOON</div>
           <div class="link-main">온라인 워크북 & 실험 아카이브</div>
           <div class="link-sub">
@@ -1472,7 +1310,7 @@
         어떤 형태의 대화라도 괜찮습니다. 짧은 소개와 함께 편하게 연락 주세요.
       </p>
 
-      <article class="contact-card reveal">
+      <article class="contact-card">
         <div>
           <div class="contact-label">COLLABORATION · WORKSHOP · PROJECT</div>
           <div class="contact-title">“같이 해보면 더 재밌을 것 같은 일”을 찾고 있다면</div>
@@ -1506,54 +1344,38 @@
       <div>사람들이 자기가 하고 싶은 일을 알게 되고, 실제로 하게 해주는 회사.</div>
     </div>
   </footer>
-
-  <button class="scroll-top" aria-label="맨 위로 이동">↑</button>
 </div>
 
 <script>
-  // 부드러운 스크롤 (헤더 높이 보정)
-  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href').slice(1);
-      if (!targetId) return;
-      const target = document.getElementById(targetId);
-      if (!target) return;
-      e.preventDefault();
-      const headerOffset = document.querySelector('header').offsetHeight;
-      const rect = target.getBoundingClientRect();
-      const offset = rect.top + window.scrollY - headerOffset + 4;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
-    });
-  });
-
   // 모바일 메뉴 토글
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
   if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function () {
+    navToggle.addEventListener('click', () => {
       navToggle.classList.toggle('is-open');
       navLinks.classList.toggle('is-open');
     });
-    navLinks.querySelectorAll('a[data-nav]').forEach(function (a) {
-      a.addEventListener('click', function () {
+    navLinks.querySelectorAll('a[data-nav]').forEach(a => {
+      a.addEventListener('click', () => {
         navToggle.classList.remove('is-open');
         navLinks.classList.remove('is-open');
       });
     });
   }
 
-  // 현재 섹션에 따라 nav active 표시
+  // 현재 섹션 nav 강조
   const sections = document.querySelectorAll('section[id]');
   const navItems = document.querySelectorAll('.nav-links a[data-nav]');
   function updateActiveNav() {
-    const scrollPos = window.scrollY + document.querySelector('header').offsetHeight + 10;
+    const offset = document.querySelector('header').offsetHeight + 8;
+    const scrollPos = window.scrollY + offset;
     let currentId = null;
-    sections.forEach(function (sec) {
+    sections.forEach(sec => {
       if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
         currentId = sec.id;
       }
     });
-    navItems.forEach(function (a) {
+    navItems.forEach(a => {
       if (a.getAttribute('href') === '#' + currentId) {
         a.classList.add('is-active');
       } else {
@@ -1561,41 +1383,8 @@
       }
     });
   }
-
-  // reveal 애니메이션
-  const revealEls = document.querySelectorAll('.reveal');
-  function handleReveal() {
-    const trigger = window.innerHeight * 0.9;
-    revealEls.forEach(function (el) {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < trigger) {
-        el.classList.add('is-visible');
-      }
-    });
-  }
-
-  // 맨 위로 버튼
-  const scrollTopBtn = document.querySelector('.scroll-top');
-  function handleScrollTop() {
-    if (window.scrollY > 280) {
-      scrollTopBtn.classList.add('is-visible');
-    } else {
-      scrollTopBtn.classList.remove('is-visible');
-    }
-  }
-  scrollTopBtn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  window.addEventListener('scroll', function () {
-    updateActiveNav();
-    handleReveal();
-    handleScrollTop();
-  });
-  window.addEventListener('load', function () {
-    handleReveal();
-    updateActiveNav();
-  });
+  window.addEventListener('scroll', updateActiveNav);
+  window.addEventListener('load', updateActiveNav);
 </script>
 </body>
 </html>
