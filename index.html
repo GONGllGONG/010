@@ -4,21 +4,22 @@
   <meta charset="UTF-8" />
   <title>GongllGong | 하고 싶은 것을 하게 해주는 회사</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="GongllGong – 사람들의 눈이 다시 반짝👀✨ 이게 하는 순간을 만드는 회사. 스스로 하고 싶은 일을 발견하고, 실제로 해볼 수 있도록 돕는 실험과 프로젝트를 만듭니다.">
+  <meta name="description" content="GongllGong – 사람들의 눈이 다시 반짝👀✨ 이게 하도록, 하고 싶은 일을 발견하고 실제로 해볼 수 있게 돕는 회사입니다. 1:1/그룹 실험, 프로젝트, 워크숍으로 '하고 싶은 것'을 함께 찾아갑니다.">
   <style>
     :root {
-      --bg: #0b0b10;
-      --bg-alt: #12121a;
-      --accent: #ffd45a;
-      --accent-soft: rgba(255, 212, 90, 0.12);
-      --text: #f5f5f7;
-      --text-muted: #a0a0b5;
-      --card: #181822;
-      --border: #262637;
-      --radius-lg: 20px;
+      --bg: #f5f5ff;
+      --bg-soft: #f9f9ff;
+      --text-main: #171625;
+      --text-sub: #6b6a7c;
+      --accent: #ff7a7a;
+      --accent-soft: rgba(255,122,122,0.1);
+      --accent-emerald: #00b894;
+      --card-bg: #ffffff;
+      --border-soft: #e1e0f0;
+      --radius-lg: 18px;
       --radius-xl: 28px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
-      --max-width: 1080px;
+      --shadow-soft: 0 22px 40px rgba(23, 22, 37, 0.12);
+      --max-width: 1040px;
     }
 
     * {
@@ -29,20 +30,20 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Sans KR", sans-serif;
-      background: radial-gradient(circle at top, #202035 0, #050509 45%, #000 100%);
-      color: var(--text);
+      background: radial-gradient(circle at top left, #ffe9f0 0, #f5f5ff 40%, #fefeff 100%);
+      color: var(--text-main);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
     }
 
     img {
       max-width: 100%;
       display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .page {
@@ -51,13 +52,15 @@
       flex-direction: column;
     }
 
+    /* HEADER / NAV */
+
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(5,5,10,0.96), rgba(5,5,10,0.8), rgba(5,5,10,0));
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(to bottom, rgba(245,245,255,0.98), rgba(245,245,255,0.9), rgba(245,245,255,0.0));
+      border-bottom: 1px solid rgba(225,224,240,0.7);
     }
 
     .nav {
@@ -79,21 +82,32 @@
     .logo-mark {
       width: 32px;
       height: 32px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #fff 0, #ffd45a 35%, #ff9c4a 65%, #5a3cff 100%);
-      box-shadow: 0 0 0 2px rgba(255,255,255,0.12), 0 12px 32px rgba(0,0,0,0.6);
+      border-radius: 40%;
+      background: conic-gradient(from 180deg, #ff7a7a, #ffce68, #00b894, #6c5ce7, #ff7a7a);
+      position: relative;
+      overflow: hidden;
     }
 
-    .logo-text-main {
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      font-size: 13px;
-      text-transform: uppercase;
+    .logo-mark::after {
+      content: "👀";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.9), transparent 55%);
     }
 
-    .logo-text-sub {
+    .logo-main {
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      font-size: 14px;
+    }
+
+    .logo-sub {
       font-size: 11px;
-      color: var(--text-muted);
+      color: var(--text-sub);
     }
 
     .nav-links {
@@ -101,12 +115,12 @@
       align-items: center;
       gap: 18px;
       font-size: 13px;
-      color: var(--text-muted);
+      color: var(--text-sub);
     }
 
     .nav-links a {
-      padding: 6px 0;
       position: relative;
+      padding: 3px 0;
     }
 
     .nav-links a::after {
@@ -117,7 +131,7 @@
       width: 0;
       height: 2px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #ffd45a, #ff9c4a);
+      background: linear-gradient(90deg, #ff7a7a, #ffce68);
       transition: width 0.18s ease-out;
     }
 
@@ -126,27 +140,14 @@
     }
 
     .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      border-radius: 999px;
       padding: 7px 14px;
+      background: linear-gradient(120deg, #ff7a7a, #ffce68);
+      color: #fff;
       font-size: 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 212, 90, 0.5);
-      background: radial-gradient(circle at top left, rgba(255,212,90,0.18), rgba(255,156,74,0.06));
-      box-shadow: 0 8px 25px rgba(0,0,0,0.7);
-      color: #111;
-      background-color: var(--accent);
-      font-weight: 600;
+      font-weight: 700;
+      box-shadow: 0 12px 24px rgba(255,122,122,0.4);
       white-space: nowrap;
-    }
-
-    .nav-cta span.dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #ff4d4f;
-      box-shadow: 0 0 0 5px rgba(255,77,79,0.35);
     }
 
     main {
@@ -162,217 +163,14 @@
     /* HERO */
 
     .hero {
-      padding-top: 60px;
-      padding-bottom: 40px;
+      padding-top: 40px;
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 40px;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 36px;
       align-items: center;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(12,12,20,0.9);
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 18px;
-    }
-
-    .badge-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background: rgba(255,212,90,0.16);
-      color: var(--accent);
-    }
-
-    .hero-title {
-      font-size: clamp(32px, 4vw, 42px);
-      line-height: 1.2;
-      margin-bottom: 14px;
-      letter-spacing: -0.02em;
-    }
-
-    .hero-title span.highlight {
-      background: linear-gradient(135deg, #ffd45a, #ff9c4a, #ff6b94);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-sub {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 22px;
-    }
-
-    .hero-sub strong {
-      color: #f8f8ff;
-      font-weight: 600;
-    }
-
-    .hero-cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 18px;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 11px 20px;
-      border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, #ffd45a, #ff9c4a);
-      color: #151515;
-      font-size: 13px;
-      font-weight: 700;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.75);
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(10,10,18,0.9);
-      color: var(--text-muted);
-      font-size: 12px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .hero-note {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .hero-note strong {
-      color: var(--accent);
-    }
-
-    .hero-right-card {
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: radial-gradient(circle at top, rgba(255,212,90,0.18), rgba(10,10,18,0.96));
-      box-shadow: var(--shadow-soft);
-      padding: 18px 18px 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-pill {
-      font-size: 11px;
-      color: #111;
-      background: rgba(255,255,255,0.9);
-      display: inline-flex;
-      padding: 4px 9px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .hero-pill-circle {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #ffd45a, #ff9c4a);
-    }
-
-    .hero-right-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .hero-right-sub {
-      font-size: 12px;
-      color: #333;
-      margin-bottom: 12px;
-    }
-
-    .hero-list {
-      list-style: none;
-      font-size: 12px;
-      color: #222;
-      margin-bottom: 16px;
-    }
-
-    .hero-list li {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 6px;
-      align-items: flex-start;
-    }
-
-    .hero-list li span.bullet {
-      margin-top: 3px;
-      width: 12px;
-      height: 12px;
-      border-radius: 4px;
-      background: rgba(0,0,0,0.12);
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 10px;
-      font-size: 11px;
-      color: #333;
-    }
-
-    .hero-stat-box {
-      flex: 1;
-      padding: 8px 9px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.86);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .hero-stat-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #7b7b7b;
-    }
-
-    .hero-stat-value {
-      font-weight: 700;
-    }
-
-    .hero-blur {
-      position: absolute;
-      inset: auto auto -40px -40px;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, rgba(255,255,255,0.45), rgba(255,255,255,0));
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    /* SECTION TITLES */
-
-    .section-label {
+    .hero-label {
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
@@ -380,190 +178,469 @@
       margin-bottom: 6px;
     }
 
+    .hero-title {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .hero-highlight {
+      background: linear-gradient(120deg, #ff7a7a, #ffce68, #6c5ce7);
+      -webkit-background-clip: text;
+      color: transparent;
+      white-space: nowrap;
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-sub);
+      margin-bottom: 18px;
+    }
+
+    .hero-sub strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .hero-quote {
+      font-size: 13px;
+      color: var(--text-sub);
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--border-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .hero-quote span.icon {
+      font-size: 16px;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      padding: 11px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      border: none;
+      background: linear-gradient(135deg, #ff7a7a, #ffce68);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 16px 30px rgba(255,122,122,0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border-soft);
+      background: rgba(255,255,255,0.9);
+      color: var(--text-sub);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    .hero-note strong {
+      color: var(--accent-emerald);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card-main {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      padding: 20px 20px 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(225,224,240,0.9);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+
+    .hero-pill {
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-pill-outline {
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px dashed rgba(255,122,122,0.45);
+      color: var(--text-sub);
+    }
+
+    .hero-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hero-card-sub {
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+    }
+
+    .hero-list {
+      list-style: none;
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 10px;
+    }
+
+    .hero-list li {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .hero-list span.dot {
+      margin-top: 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff7a7a, #ffce68);
+    }
+
+    .hero-tagline {
+      font-size: 11px;
+      color: var(--accent-emerald);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .hero-tagline span.badge {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(0,184,148,0.08);
+      border: 1px solid rgba(0,184,148,0.4);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-float {
+      position: absolute;
+      inset: auto -4px -28px auto;
+      width: 140px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: #171625;
+      color: #fff;
+      font-size: 11px;
+      box-shadow: 0 18px 30px rgba(23,22,37,0.7);
+    }
+
+    .hero-float-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #a5bbff;
+      margin-bottom: 4px;
+    }
+
+    .hero-float-main {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .hero-float-sub {
+      font-size: 10px;
+      color: #d0d4ff;
+    }
+
+    .hero-bg-circle {
+      position: absolute;
+      inset: -40px -40px auto auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,122,122,0.35), transparent 60%);
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    /* GENERIC SECTION STYLES */
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
     .section-title {
       font-size: 22px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 8px;
     }
 
     .section-desc {
       font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 22px;
+      color: var(--text-sub);
+      margin-bottom: 18px;
     }
 
-    /* GENERIC GRID & CARD */
+    /* GRID / CARDS */
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
 
     .grid-2 {
       display: grid;
-      grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
-      gap: 26px;
-      align-items: flex-start;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
     }
 
     .card {
+      background: var(--card-bg);
       border-radius: var(--radius-lg);
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 18px 18px 16px;
-      box-shadow: 0 16px 35px rgba(0,0,0,0.65);
+      padding: 14px 14px 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 14px 30px rgba(23,22,37,0.08);
+      font-size: 13px;
     }
 
     .card-title {
-      font-size: 15px;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .card-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 3px;
     }
 
     .card-body {
       font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    .pill {
-      font-size: 11px;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--text-muted);
-      background: rgba(255,255,255,0.02);
+      color: var(--text-sub);
     }
 
     /* SERVICES */
 
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+    .badge-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-bottom: 10px;
     }
 
-    .program-card {
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: linear-gradient(160deg, rgba(255,212,90,0.06), rgba(24,24,34,1));
-      padding: 14px 14px 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .dot-colored {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #ff7a7a, #ffce68);
+    }
+
+    .service-list {
+      list-style: none;
+      padding-left: 0;
       font-size: 12px;
-      color: var(--text-muted);
+      color: var(--text-sub);
+      margin-top: 6px;
     }
 
-    .program-tag {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+    .service-list li::before {
+      content: "• ";
       color: var(--accent);
     }
 
-    .program-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: #fdfdfd;
-    }
+    /* PROCESS */
 
-    .program-meta {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    /* PROJECTS */
-
-    .timeline {
-      border-radius: var(--radius-lg);
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 18px 18px 10px;
+    .process-steps {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-      gap: 20px;
-      font-size: 12px;
-    }
-
-    .timeline-col-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .timeline-item {
-      display: flex;
+      grid-template-columns: repeat(4, minmax(0,1fr));
       gap: 10px;
-      padding: 10px 0;
-      border-bottom: 1px dashed rgba(255,255,255,0.07);
-    }
-
-    .timeline-item:last-child {
-      border-bottom: none;
-    }
-
-    .timeline-meta {
-      font-size: 11px;
-      color: var(--accent);
-      white-space: nowrap;
-      min-width: 80px;
-    }
-
-    .timeline-text-title {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .timeline-text-sub {
       font-size: 12px;
-      color: var(--text-muted);
+    }
+
+    .process-step {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 10px 10px 12px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 22px rgba(23,22,37,0.08);
+    }
+
+    .process-step-num {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+
+    .process-step-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .process-step-body {
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    /* PROJECT HIGHLIGHT */
+
+    .project-card {
+      border-radius: var(--radius-xl);
+      background: linear-gradient(120deg, #171625, #2a2740);
+      color: #fefeff;
+      padding: 18px 18px 20px;
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 18px;
+      box-shadow: 0 20px 40px rgba(23,22,37,0.6);
+    }
+
+    .project-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a5bbff;
+      margin-bottom: 4px;
+    }
+
+    .project-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .project-body {
+      font-size: 13px;
+      color: #dadcff;
+      margin-bottom: 10px;
+    }
+
+    .project-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .project-pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(250, 250, 255, 0.06);
+      border: 1px solid rgba(165,187,255,0.5);
+    }
+
+    .project-side-card {
+      border-radius: 16px;
+      padding: 12px 12px 13px;
+      background: rgba(250,250,255,0.08);
+      border: 1px solid rgba(165,187,255,0.4);
+      font-size: 12px;
+    }
+
+    .project-side-title {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .project-side-body {
+      font-size: 11px;
+      color: #d0d4ff;
     }
 
     /* LINKS */
 
     .link-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 12px;
     }
 
     .link-card {
       border-radius: 16px;
-      padding: 12px 12px 13px;
-      background: var(--card);
-      border: 1px solid var(--border);
+      padding: 12px 12px 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 24px rgba(23,22,37,0.08);
       font-size: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
       transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, border-color 0.15s ease-out;
     }
 
     .link-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 18px 38px rgba(0,0,0,0.7);
-      border-color: rgba(255,212,90,0.5);
+      box-shadow: 0 20px 36px rgba(23,22,37,0.16);
+      border-color: rgba(255,122,122,0.6);
     }
 
     .link-label {
-      font-size: 11px;
-      color: var(--accent);
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 3px;
     }
 
     .link-main {
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
+      margin-bottom: 2px;
     }
 
     .link-sub {
       font-size: 11px;
-      color: var(--text-muted);
+      color: var(--text-sub);
       word-break: break-all;
     }
 
@@ -571,47 +648,60 @@
 
     .contact-card {
       border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, rgba(255,212,90,0.08), rgba(16,16,26,0.98));
-      border: 1px solid rgba(255,212,90,0.35);
+      background: #171625;
+      color: #fefeff;
       padding: 18px 18px 20px;
-      box-shadow: var(--shadow-soft);
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0,1fr);
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
       gap: 18px;
-      font-size: 13px;
+      box-shadow: 0 20px 40px rgba(23,22,37,0.7);
     }
 
     .contact-label {
-      font-size: 12px;
-      color: #3a3214;
-      margin-bottom: 6px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #a5bbff;
+      margin-bottom: 5px;
     }
 
     .contact-title {
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 20px;
+      font-weight: 800;
       margin-bottom: 6px;
     }
 
-    .contact-sub {
+    .contact-body {
       font-size: 13px;
-      color: #4b3f14;
+      color: #dadcff;
     }
 
     .contact-info {
       font-size: 12px;
-      color: #2d2614;
+      color: #dadcff;
+    }
+
+    .contact-info p {
+      margin-bottom: 8px;
     }
 
     .contact-info a {
+      color: #ffce68;
       text-decoration: underline;
     }
 
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 18px 20px 26px;
+    .contact-note {
       font-size: 11px;
-      color: var(--text-muted);
+      color: #b6b9ff;
+      margin-top: 4px;
+    }
+
+    footer {
+      padding: 18px 20px 24px;
+      border-top: 1px solid var(--border-soft);
+      font-size: 11px;
+      color: var(--text-sub);
+      background: rgba(252,252,255,0.9);
     }
 
     .footer-inner {
@@ -619,7 +709,7 @@
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
@@ -627,19 +717,21 @@
       .hero {
         grid-template-columns: minmax(0,1fr);
       }
-      .hero-right-card {
+      .hero-right {
         order: -1;
       }
-      .grid-2,
-      .timeline,
-      .contact-card {
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .grid-2 {
         grid-template-columns: minmax(0,1fr);
       }
-      .program-grid {
+      .process-steps {
         grid-template-columns: repeat(2, minmax(0,1fr));
       }
-      .link-grid {
-        grid-template-columns: repeat(2, minmax(0,1fr));
+      .project-card,
+      .contact-card {
+        grid-template-columns: minmax(0,1fr);
       }
       .nav-links {
         display: none;
@@ -650,12 +742,18 @@
       .section {
         padding-inline: 16px;
       }
-      .program-grid,
-      .link-grid {
+      .grid-3,
+      .link-grid,
+      .process-steps {
         grid-template-columns: minmax(0,1fr);
       }
-      .hero {
-        padding-top: 40px;
+      .hero-card-main {
+        padding: 16px 14px 16px;
+      }
+      .hero-float {
+        position: static;
+        margin-top: 10px;
+        width: auto;
       }
     }
   </style>
@@ -669,20 +767,16 @@
       <div class="logo-wrap">
         <div class="logo-mark" aria-hidden="true"></div>
         <div>
-          <div class="logo-text-main">GongllGong</div>
-          <div class="logo-text-sub">하고 싶은 것을 하게 해주는 회사</div>
+          <div class="logo-main">GongllGong</div>
+          <div class="logo-sub">하고 싶은 것을 하게 해주는 회사</div>
         </div>
       </div>
       <div class="nav-links">
-        <a href="#about">소개</a>
+        <a href="#about">회사 소개</a>
+        <a href="#why">왜 이 일을 하나요</a>
         <a href="#services">우리가 하는 일</a>
-        <a href="#projects">프로젝트</a>
-        <a href="#archive">아카이브</a>
-        <a href="#contact">문의</a>
-        <a class="nav-cta" href="#contact">
-          <span class="dot"></span>
-          함께 눈 반짝이게 하기
-        </a>
+        <a href="#project">프로젝트</a>
+        <a href="#contact" class="nav-cta">함께 일해보기</a>
       </div>
     </div>
   </header>
@@ -691,69 +785,63 @@
     <!-- HERO -->
     <section class="section hero" id="top">
       <div>
-        <div class="badge">
-          <span class="badge-pill">GongllGong</span>
-          <span>사람들이 하고 싶은 일을 하게 해주는 회사</span>
-        </div>
+        <div class="hero-label">GongllGong</div>
         <h1 class="hero-title">
-          사람들 눈이 다시<br />
-          <span class="highlight">반짝👀✨ 이게 하게 만드는 일</span>
+          사람들 눈이 다시<br/>
+          <span class="hero-highlight">반짝👀✨ 이게 되도록</span><br/>
+          하고 싶은 것을, 진짜 하게 해주는 회사
         </h1>
         <p class="hero-sub">
-          많은 사람들은 말합니다. “사실… 내가 뭘 하고 싶은지도 모르겠어.”<br>
-          <strong>GongllGong</strong>은 그 지점에서부터 시작합니다.<br>
-          사람마다 다른 <strong>“하고 싶은 일”을 발견하고, 실제로 해보는 순간</strong>까지<br>
-          같이 걸어가는 실험과 프로젝트를 만듭니다.
+          많은 사람들이 말합니다. <strong>“사실… 내가 뭘 하고 싶은지도 모르겠어요.”</strong><br/>
+          GongllGong은 그 지점에서 시작합니다.<br/>
+          <strong>“나는 어떤 사람이고, 무엇을 할 때 눈이 반짝이는지”</strong> 함께 찾아내고,<br/>
+          그걸 <strong>진짜 삶에서 한 번 살아보게 만드는 것</strong>이 우리의 일입니다.
         </p>
+        <div class="hero-quote">
+          <span class="icon">💬</span>
+          <span>하고 싶은 게 없는 게 아니라, <strong>아직 발견하지 못한 걸 수도 있으니까요.</strong></span>
+        </div>
         <div class="hero-cta-row">
           <a href="#services" class="btn-primary">
-            하고 싶은 일 찾기 시작하기 →
+            내가 하고 싶은 일, 함께 찾기 →
           </a>
-          <a href="#contact" class="btn-ghost">
-            협업 · 워크숍 제안하기
+          <a href="#contact" class="btn-secondary">
+            협업·워크숍 제안하기
           </a>
         </div>
         <p class="hero-note">
-          <strong>“하고 싶은 걸 알고, 실제로 해보는 것.”</strong><br>
-          그 사이를 메우는 일들을 GongllGong이 합니다.
+          <strong>1:1/그룹 실험 · 워크숍 · 프로젝트</strong> 형태로 함께합니다.
         </p>
       </div>
-      <div class="hero-right-card" aria-label="GongllGong 실험 개요 카드">
-        <div class="hero-pill">
-          <span class="hero-pill-circle"></span>
-          Want-to-Do → Can-Do → Doing
-        </div>
-        <div class="hero-right-title">GongllGong이 보는 여정</div>
-        <div class="hero-right-sub">“하고 싶은 걸 모른다”에서 “나는 이걸 하고 산다”까지</div>
-        <ul class="hero-list">
-          <li>
-            <span class="bullet"></span>
-            <div><strong>발견</strong> – 나는 어떤 사람이고, 무엇을 좋아하는지 알아차리기</div>
-          </li>
-          <li>
-            <span class="bullet"></span>
-            <div><strong>정리</strong> – 하고 싶은 일의 언어·이미지·상황을 또렷하게 만들기</div>
-          </li>
-          <li>
-            <span class="bullet"></span>
-            <div><strong>실험</strong> – 세상에 살짝 꺼내보는 작은 시도 설계·실행</div>
-          </li>
-          <li>
-            <span class="bullet"></span>
-            <div><strong>확장</strong> – “이게 나다” 싶은 장면을 일·프로젝트로 확장하기</div>
-          </li>
-        </ul>
-        <div class="hero-stats">
-          <div class="hero-stat-box">
-            <div class="hero-stat-label">키워드</div>
-            <div class="hero-stat-value">자기이해 · 욕망 · 실험</div>
+
+      <div class="hero-right" aria-label="GongllGong 방식 요약 카드">
+        <div class="hero-bg-circle" aria-hidden="true"></div>
+        <div class="hero-card-main">
+          <div class="hero-pill-row">
+            <span class="hero-pill">눈 반짝 프로젝트</span>
+            <span class="hero-pill-outline">하고 싶은 일 발견 & 실험</span>
           </div>
-          <div class="hero-stat-box">
-            <div class="hero-stat-label">방식</div>
-            <div class="hero-stat-value">워크숍 · 1:1 동행 · 프로젝트</div>
+          <div class="hero-card-title">GongllGong이 하는 일</div>
+          <div class="hero-card-sub">
+            “하고 싶은 걸 모른다”는 지점에서 출발해,<br/>
+            다시 나를 알고, 실험하고, 구체적인 한 걸음까지 이어줍니다.
+          </div>
+          <ul class="hero-list">
+            <li><span class="dot"></span><div><strong>발견</strong> – 내가 어떤 사람인지, 무엇에 끌리는지 정리하는 자기 이해</div></li>
+            <li><span class="dot"></span><div><strong>언어화</strong> – 막연한 마음을 문장과 그림, 키워드로 꺼내기</div></li>
+            <li><span class="dot"></span><div><strong>실험</strong> – “진짜 한 번 해볼까?”를 위한 가장 작은 시도 설계</div></li>
+            <li><span class="dot"></span><div><strong>동행</strong> – 그 과정에서 눈이 다시 반짝👀✨ 이게 되는지 함께 지켜보기</div></li>
+          </ul>
+          <div class="hero-tagline">
+            <span class="badge">Mission</span>
+            <span>사람들이 <strong>자기가 하고 싶은 일을 알고, 실제로 살아보게 하는 것</strong></span>
           </div>
         </div>
-        <div class="hero-blur"></div>
+        <div class="hero-float">
+          <div class="hero-float-tag">For</div>
+          <div class="hero-float-main">“이제 뭐하고 살아야 하지?”라고 자주 생각하는 사람들</div>
+          <div class="hero-float-sub">무기력·번아웃 이후, 다음 챕터를 찾는 이들을 위한 실험실.</div>
+        </div>
       </div>
     </section>
 
@@ -762,41 +850,80 @@
       <div class="section-label">About</div>
       <h2 class="section-title">GongllGong은 어떤 회사인가요?</h2>
       <p class="section-desc">
-        GongllGong은 <strong>“하고 싶은 것을 하게 해주는 회사”</strong>입니다.<br>
-        우리는 사람들의 눈이 다시 <strong>반짝👀✨ 이게 되는 순간</strong>을 위해 존재합니다.
+        GongllGong은 <strong>“하고 싶은 것을 하게 해주는 회사”</strong>입니다.<br/>
+        회사의 핵심 일은 단순합니다. <strong>사람들의 눈이 다시 반짝👀✨ 이게 되도록 돕는 것.</strong><br/>
+        그 반짝임이 우연이 아니라, <strong>자기가 진짜 원하는 것</strong>에서 나올 수 있도록 실험을 설계합니다.
       </p>
 
-      <div class="grid-2">
-        <div>
-          <div class="card">
-            <div class="card-title">우리가 보는 문제</div>
-            <div class="card-body">
-              많은 사람들은 이렇게 말합니다.<br/>
-              “나 진짜로 뭘 하고 싶은지 모르겠어.”<br/><br/>
-              하고 싶은 게 없는 게 아니라,<br/>
-              <strong>내가 어떤 사람인지, 무엇을 좋아하는지</strong>를
-              천천히 들여다본 경험이 없었던 건 아닐까요?<br/><br/>
-              GongllGong은 이렇게 질문합니다.<br/>
-              <strong>“당신 눈이 반짝이는 순간은 언제였나요?”</strong><br/>
-              그 순간들 속에서, 하고 싶은 일의 씨앗을 함께 찾습니다.
-            </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-tag">Why</div>
+          <div class="card-title">왜 이 일을 하나요?</div>
+          <div class="card-body">
+            “우리나라 청년들이 왜 이렇게까지 무기력하고, 지쳐 있을까?”<br/><br/>
+            그 질문을 깊게 파고들다 보니, 한 가지에 닿았습니다.<br/>
+            <strong>“자기 자신이 어떤 사람인지 잘 모른 채 살아왔기 때문이 아닐까?”</strong><br/><br/>
+            그래서 우리는, 사람마다 다른 “하고 싶은 것”을 찾고,
+            그걸 살짝이라도 살아보는 장면을 만드는 일을 합니다.
           </div>
         </div>
-        <div>
-          <div class="card">
-            <div class="card-title">우리가 만드는 장면</div>
-            <div class="card-body">
-              - “나 뭐하고 살고 싶지…?”를 함께 말로 꺼내보는 작은 공간<br/>
-              - 머릿속에만 있던 하고 싶은 일을 <strong>말 · 글 · 계획</strong>으로 끌어내는 워크숍<br/>
-              - “이거 진짜 해봐도 될까?”를 함께 실험해보는 프로젝트들<br/>
-              - 혼자 꾸물거리던 욕망이 <strong>실제 행동</strong>으로 옮겨지는 순간<br/>
-              <div class="pill-row">
-                <span class="pill">#하고싶은것을하게해주는</span>
-                <span class="pill">#눈반짝프로젝트</span>
-                <span class="pill">#자기이해</span>
-                <span class="pill">#하고싶은일찾기</span>
-              </div>
-            </div>
+        <div class="card">
+          <div class="card-tag">What</div>
+          <div class="card-title">우리는 무엇을 만드나요?</div>
+          <div class="card-body">
+            - 나를 이해하게 만드는 질문과 워크북<br/>
+            - 하고 싶은 일을 말로 꺼내는 대화와 세션<br/>
+            - 작더라도 실제로 해보는 실험과 프로젝트<br/><br/>
+            <strong>생각에서 그치지 않고, 삶까지 가 닿게 하는 구조</strong>를 설계합니다.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-tag">How</div>
+          <div class="card-title">어떤 방식으로 함께하나요?</div>
+          <div class="card-body">
+            - 1:1 또는 소규모 그룹 실험<br/>
+            - 워크숍, 클래스, 기관·학교 협업 프로그램<br/>
+            - 프로젝트 단위의 진로/삶 디자인 실험<br/><br/>
+            사람마다 다른 속도를 존중하며, <strong>“지금 할 수 있는 가장 작은 한 걸음”</strong>을 함께 고릅니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY PEOPLE DON'T KNOW WHAT THEY WANT -->
+    <section class="section" id="why">
+      <div class="section-label">Insight</div>
+      <h2 class="section-title">사람들이 “하고 싶은 걸 모르겠다”고 말하는 이유</h2>
+      <p class="section-desc">
+        우리는 “의지가 부족해서”가 아니라, <strong>환경과 구조, 언어의 부족</strong 때문에
+        하고 싶은 일을 모른다고 느끼는 경우를 많이 봤어요.<br/>
+        GongllGong은 이 지점을 풀어주는 데 집중합니다.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">1. 생각할 틈이 없어서</div>
+          <div class="card-body">
+            시험, 입시, 취업, 생계까지 오느라<br/>
+            <strong>“나는 어떤 사람이지?”</strong>를 차분히 생각해 볼
+            여유 자체가 없었던 경우가 많습니다.<br/><br/>
+            그래서 우리는 먼저, <strong>멈추고 돌아볼 수 있는 시간</strong>을 선물합니다.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">2. 비교 속에서 잃어버려서</div>
+          <div class="card-body">
+            “남들 다 하는 거니까”, “이게 맞는 길이래”라는 말 속에서<br/>
+            내 진짜 목소리는 점점 작아집니다.<br/><br/>
+            우리는 <strong>타인의 기준이 아니라, 나의 기준</strong을 다시 세우도록 돕습니다.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">3. 말로 꺼내본 적이 없어서</div>
+          <div class="card-body">
+            마음속 이미지로만 떠다니는 하고 싶은 일은<br/>
+            금방 사라져버립니다.<br/><br/>
+            그래서 질문, 글, 대화를 통해 <strong>“말과 글”로 꺼내는 작업</strong>을 같이 합니다.
           </div>
         </div>
       </div>
@@ -805,104 +932,135 @@
     <!-- SERVICES -->
     <section class="section" id="services">
       <div class="section-label">Services</div>
-      <h2 class="section-title">GongllGong이 함께 하는 일들</h2>
+      <h2 class="section-title">GongllGong이 함께하는 것들</h2>
       <p class="section-desc">
-        “하고 싶은 일을 찾고, 말하고, 실제로 해보는 것”까지.<br>
-        GongllGong은 사람과 팀, 조직을 위한 <strong>실험 설계자</strong>이자 <strong>동행자</strong>입니다.
+        “하고 싶은 일을 찾는 과정”과 “실제로 해보는 과정”을 나누지 않습니다.<br/>
+        <strong>발견 → 언어화 → 실험 → 정리</strong>까지 한 흐름으로 함께합니다.
       </p>
 
-      <div class="program-grid">
-        <div class="program-card">
-          <div class="program-tag">개인 · 소규모</div>
-          <div class="program-title">하고 싶은 일 발견 실험실</div>
-          <div class="program-meta">1:1 · 2~4인 소규모</div>
-          <p>
-            “나 진짜 뭐하고 싶지?”를 함께 탐색하는 실험입니다.<br>
-            과거의 반짝였던 순간, 부러운 사람의 삶, 싫었던 경험을
-            천천히 꺼내며 <strong>하고 싶은 일의 패턴</strong>을 찾습니다.
-          </p>
+      <div class="badge-inline">
+        <span class="dot-colored"></span>
+        <span>1:1 · 소규모 그룹 · 기관/학교 협업 형태로 운영</span>
+      </div>
+
+      <div class="grid-3" style="margin-top: 10px;">
+        <div class="card">
+          <div class="card-tag">01</div>
+          <div class="card-title">하고 싶은 일 발견 실험</div>
+          <div class="card-body">
+            - 나의 과거 경험에서 반짝이던 순간 찾기<br/>
+            - 좋아하는 것·싫어하는 것 패턴 정리<br/>
+            - 감정·에너지 흐름을 기록하는 워크북<br/>
+            <ul class="service-list">
+              <li>“도대체 나는 뭘 좋아하는 사람이지?”부터 시작할 때</li>
+            </ul>
+          </div>
         </div>
-        <div class="program-card">
-          <div class="program-tag">워크숍</div>
-          <div class="program-title">Want-to-Do 워크숍</div>
-          <div class="program-meta">학교 · 기관 · 팀 대상</div>
-          <p>
-            강의형이 아니라, <strong>쓰고 말하고 서로 들어주는 구조</strong>의 워크숍입니다.<br>
-            참가자 각자가 자신만의 “하고 싶은 일 문장”을 만들고,
-            오늘 해볼 수 있는 <strong>작은 실험</strong>을 설계합니다.
-          </p>
+        <div class="card">
+          <div class="card-tag">02</div>
+          <div class="card-title">하고 싶은 일 언어화 & 설계</div>
+          <div class="card-body">
+            - 막연한 꿈을 문장으로 만들기<br/>
+            - “당장 할 수 있는 가장 작은 버전” 찾기<br/>
+            - 일정·리소스를 고려한 현실적인 실험 설계<br/>
+            <ul class="service-list">
+              <li>머릿속에만 있던 상상을 꺼내 현실 언어로 바꿀 때</li>
+            </ul>
+          </div>
         </div>
-        <div class="program-card">
-          <div class="program-tag">프로젝트</div>
-          <div class="program-title">눈 반짝 프로젝트 동행</div>
-          <div class="program-meta">장기 실험 · 파일럿</div>
-          <p>
-            하고 싶은 일을 <strong>프로젝트 · 서비스 · 커리큘럼</strong>으로 만들고 싶은 분들과
-            함께 설계부터 파일럿까지 동행합니다.<br>
-            기획·구조화·실험 설계를 함께 합니다.
-          </p>
+        <div class="card">
+          <div class="card-tag">03</div>
+          <div class="card-title">실제 실험 & 동행</div>
+          <div class="card-body">
+            - 2~6주 동안의 작은 프로젝트 실행<br/>
+            - 주간 체크인, 기록, 피드백<br/>
+            - “해봤더니 어땠는지” 정리와 다음 단계 설계<br/>
+            <ul class="service-list">
+              <li>“이거 진짜 해봐도 될까?”를 함께 확인하고 싶을 때</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <div class="section-label">Projects</div>
-      <h2 class="section-title">GongllGong이 만든/만들고 있는 실험들</h2>
+    <!-- PROCESS -->
+    <section class="section">
+      <div class="section-label">Process</div>
+      <h2 class="section-title">GongllGong과 함께 걷는 4단계</h2>
       <p class="section-desc">
-        GongllGong은 “하고 싶은 것을 하게 해주는 일”을 다양한 형태의 프로젝트로 풀어내고 있습니다.
+        상담이나 코칭이라기보다, <strong>“같이 실험해보는 동료”</strong>에 가깝게 함께합니다.
       </p>
 
-      <div class="timeline">
-        <div>
-          <div class="timeline-col-title">Project · LEVEL ZERO 돌멩이</div>
-          <div class="timeline-item">
-            <div class="timeline-meta">청년 · 진로</div>
-            <div>
-              <div class="timeline-text-title">나는 누구인가를 묻는 진로실험</div>
-              <div class="timeline-text-sub">
-                무기력과 방향 상실을 겪는 청년들과 함께<br/>
-                진로 이전의 질문, <strong>“나는 누구인가?”</strong>에서 출발하는 실험입니다.<br/>
-                워크북과 대화, 작은 행동 실험을 통해<br/>
-                “나로 살아보기”를 연습합니다.
-              </div>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-meta">형태</div>
-            <div>
-              <div class="timeline-text-title">워크북 · 워크숍 · 오픈랩</div>
-              <div class="timeline-text-sub">
-                - 자기이해 워크북 제작<br/>
-                - 소규모 그룹 워크숍<br/>
-                - 실험 기록과 변화를 공유하는 오픈랩
-              </div>
-            </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-step-num">Step 01</div>
+          <div class="process-step-title">나를 차분히 들여다보기</div>
+          <div class="process-step-body">
+            지금까지의 삶에서 반짝이던 순간, 지쳐 있던 순간을 함께 정리합니다.
+            감정·상황·사람을 기준으로 나를 다시 이해해봅니다.
           </div>
         </div>
-
-        <div>
-          <div class="timeline-col-title">Coming Soon</div>
-          <div class="timeline-item">
-            <div class="timeline-meta">Personal</div>
-            <div>
-              <div class="timeline-text-title">개인의 “눈 반짝 아카이브” 만들기</div>
-              <div class="timeline-text-sub">
-                한 사람의 반짝였던 순간과 하고 싶은 일의 변화를<br/>
-                한 눈에 볼 수 있는 <strong>개인 아카이브</strong>를 구상 중입니다.<br/>
-                기록 도구 · 카드 · 디지털 버전으로 확장될 예정입니다.
-              </div>
-            </div>
+        <div class="process-step">
+          <div class="process-step-num">Step 02</div>
+          <div class="process-step-title">하고 싶은 것 후보 만들기</div>
+          <div class="process-step-body">
+            “이런 걸 해보고 싶었는데…”를 마음속에서 꺼냅니다.
+            크기·정도 상관 없이, 다양한 후보를 만들어 봅니다.
           </div>
-          <div class="timeline-item">
-            <div class="timeline-meta">Org</div>
-            <div>
-              <div class="timeline-text-title">조직 내 “하고 싶은 일” 대화 구조 만들기</div>
-              <div class="timeline-text-sub">
-                팀원 각자의 하고 싶은 일과<br/>
-                조직의 방향을 연결해 보는 워크숍과 프로세스를<br/>
-                실험하며 개발하고 있습니다.
-              </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">Step 03</div>
+          <div class="process-step-title">실험 버전으로 줄이기</div>
+          <div class="process-step-body">
+            거창한 목표 대신, <strong>지금 삶 안에서 가능한 가장 작은 버전</strong>으로 줄입니다.
+            2~6주 안에 해볼 수 있는 ‘테스트’를 함께 설계합니다.
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="process-step-num">Step 04</div>
+          <div class="process-step-title">실험하고, 다시 정리하기</div>
+          <div class="process-step-body">
+            직접 해본 뒤, 좋았던 점·어려웠던 점·새로 보인 점을 기록합니다.
+            다음에 더 키울지, 다른 길을 볼지 함께 결정합니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT: LEVEL ZERO 돌멩이 -->
+    <section class="section" id="project">
+      <div class="section-label">Project</div>
+      <h2 class="section-title">GongllGong 프로젝트 · LEVEL ZERO 돌멩이</h2>
+      <p class="section-desc">
+        GongllGong 안에는 여러 실험 프로젝트들이 있고, 그중 하나가
+        청년 진로실험 프로젝트 <strong>“LEVEL ZERO 돌멩이”</strong>입니다.
+      </p>
+
+      <div class="project-card">
+        <div>
+          <div class="project-tag">진로 실험 프로젝트</div>
+          <div class="project-title">LEVEL ZERO 돌멩이 – “나는 누구인가?”에서 시작하는 진로실험</div>
+          <div class="project-body">
+            대한민국 청년들이 겪는 무기력, 번아웃, 방향 상실의 뒤에는<br/>
+            <strong>“나는 어떤 사람인지 제대로 묻지 못한 시간”</strong>이 쌓여 있다고 보았습니다.<br/><br/>
+            LEVEL ZERO 돌멩이는 진로·커리어보다 먼저,
+            <strong>“나는 누구인가?”라는 질문과 회복</strong>에서 출발하는 실험입니다.
+          </div>
+          <div class="project-pill-row">
+            <span class="project-pill">청년 무기력 · 번아웃 이후</span>
+            <span class="project-pill">자기 이해 워크북</span>
+            <span class="project-pill">소규모 진로실험</span>
+          </div>
+        </div>
+        <div>
+          <div class="project-side-card">
+            <div class="project-side-title">이 프로젝트가 하는 일</div>
+            <div class="project-side-body">
+              - “나는 누구인가?”를 중심으로 한 자기 이해 워크북 제작<br/>
+              - 청년들과 함께하는 소규모 워크숍 운영<br/>
+              - 진로실험실 등 공공 사업과 연계한 실험 설계<br/><br/>
+              LEVEL ZERO 돌멩이는 GongllGong이 만들어 가는
+              여러 “눈 반짝 프로젝트” 중 하나입니다.
             </div>
           </div>
         </div>
@@ -910,60 +1068,30 @@
     </section>
 
     <!-- ARCHIVE / LINKS -->
-    <section class="section" id="archive">
+    <section class="section">
       <div class="section-label">Archive</div>
-      <h2 class="section-title">흔적을 남기고, 다음 반짝을 준비합니다</h2>
+      <h2 class="section-title">어디서 더 볼 수 있나요?</h2>
       <p class="section-desc">
-        GongllGong의 생각과 실험은 여러 채널에 조금씩 쌓이고 있습니다.<br>
-        아래 링크에서 <strong>에세이, 프로젝트 기록, 작업 과정</strong>을 확인하실 수 있어요.
+        GongllGong과 다양한 프로젝트의 기록과 생각들은<br/>
+        인스타그램, 네이버 블로그 등 여러 채널에 쌓이고 있습니다.
       </p>
 
       <div class="link-grid">
         <a class="link-card" href="https://www.instagram.com/stone82_official/" target="_blank" rel="noopener noreferrer">
           <div class="link-label">Instagram</div>
           <div class="link-main">@stone82_official</div>
-          <div class="link-sub">GongllGong 공식 계정 · 프로젝트 소식</div>
+          <div class="link-sub">GongllGong · 프로젝트 소식과 짧은 기록들</div>
         </a>
-
         <a class="link-card" href="https://blog.naver.com/rnjsgmldus18" target="_blank" rel="noopener noreferrer">
           <div class="link-label">Blog</div>
           <div class="link-main">네이버 블로그</div>
-          <div class="link-sub">에세이 · 기록 · 프로젝트 후기</div>
+          <div class="link-sub">조금 더 긴 글, 에세이, 실험 후기</div>
         </a>
-
         <div class="link-card">
-          <div class="link-label">Note</div>
-          <div class="link-main">눈 반짝 순간 모음</div>
+          <div class="link-label">Coming soon</div>
+          <div class="link-main">온라인 페이지 & 워크북 공개</div>
           <div class="link-sub">
-            사람들이 “이거 할 때 진짜 재밌었어”라고 말한 순간들을<br/>
-            모아 언젠가 작은 책이나 전시로 만들고 싶습니다.
-          </div>
-        </div>
-
-        <div class="link-card">
-          <div class="link-label">Project</div>
-          <div class="link-main">LEVEL ZERO 돌멩이</div>
-          <div class="link-sub">
-            청년을 위한 진로·자기이해 프로젝트.<br/>
-            GongllGong이 함께 만든 실험의 한 버전입니다.
-          </div>
-        </div>
-
-        <div class="link-card">
-          <div class="link-label">Coming Soon</div>
-          <div class="link-main">워크북 · 카드 키트</div>
-          <div class="link-sub">
-            “하고 싶은 일”을 스스로 탐색해볼 수 있는<br/>
-            워크북과 질문 카드 키트를 준비 중입니다.
-          </div>
-        </div>
-
-        <div class="link-card">
-          <div class="link-label">Contact</div>
-          <div class="link-main">협업 제안 & 문의</div>
-          <div class="link-sub">
-            90n9ll90n9@gmail.com 으로<br/>
-            간단한 소개와 함께 메일을 보내주세요.
+            온라인에서 함께 쓸 수 있는 워크북과, 진로·삶 실험 아카이브를 준비 중입니다.
           </div>
         </div>
       </div>
@@ -972,38 +1100,35 @@
     <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="section-label">Contact</div>
-      <h2 class="section-title">함께 눈 반짝이는 장면을 만들고 싶다면</h2>
+      <h2 class="section-title">함께 눈 반짝👀✨ 프로젝트를 만들고 싶다면</h2>
       <p class="section-desc">
-        개인, 팀, 학교, 기관, 조직과 함께<br>
-        “하고 싶은 것을 하게 해주는 구조”를 실험합니다.<br>
-        짧은 소개와 함께 편하게 연락 주세요.
+        개인의 실험, 소규모 그룹, 학교·기관·회사와의 협업 등<br/>
+        어떤 형태의 대화라도 괜찮습니다. 짧은 소개와 함께 편하게 연락 주세요.
       </p>
 
       <div class="contact-card">
         <div>
           <div class="contact-label">Collaboration · Workshop · Project</div>
-          <div class="contact-title">“당신은 무엇을 하고 싶나요?”</div>
-          <div class="contact-sub">
-            - 개인/소규모 “하고 싶은 일 발견 실험실”<br/>
-            - 학교·기관 대상 Want-to-Do 워크숍<br/>
-            - 조직 내 ‘하고 싶은 일’ 대화 구조 만들기<br/>
-            - 새 프로젝트·서비스 기획 동행
+          <div class="contact-title">“같이 해보면 더 재밌을 것 같은 일”을 찾고 있다면</div>
+          <div class="contact-body">
+            - 하고 싶은 일을 찾는 1:1/그룹 실험<br/>
+            - 청년·직장인 대상 워크숍, 클래스<br/>
+            - 학교, 청년센터, 조직과의 커스텀 프로그램 기획<br/><br/>
+            “뭔가 막연하지만, 같이 이야기해보고 싶어요” 수준의 메일도 환영합니다.
           </div>
         </div>
-        <div>
-          <div class="contact-info">
-            <p><strong>이메일</strong><br/>
-              <a href="mailto:90n9ll90n9@gmail.com">90n9ll90n9@gmail.com</a>
-            </p>
-            <p style="margin-top:8px;"><strong>인스타그램 DM</strong><br/>
-              <a href="https://www.instagram.com/stone82_official/" target="_blank" rel="noopener noreferrer">@stone82_official</a> 으로도 편하게 메시지 주세요.
-            </p>
-            <p style="margin-top:8px; font-size:11px;">
-              메일 제목 예시:<br/>
-              [협업문의] GongllGong 워크숍 제안<br/>
-              [프로젝트문의] 하고 싶은 일 발견 프로그램 함께 만들기
-            </p>
-          </div>
+        <div class="contact-info">
+          <p><strong>이메일</strong><br/>
+            <a href="mailto:90n9ll90n9@gmail.com">90n9ll90n9@gmail.com</a>
+          </p>
+          <p><strong>인스타그램 DM</strong><br/>
+            <a href="https://www.instagram.com/stone82_official/" target="_blank" rel="noopener noreferrer">@stone82_official</a> 로 편하게 메시지 주세요.
+          </p>
+          <p class="contact-note">
+            메일 제목 예시:<br/>
+            [개인실험문의] 하고 싶은 일 함께 찾고 싶어요<br/>
+            [협업문의] GongllGong 워크숍 제안
+          </p>
         </div>
       </div>
     </section>
@@ -1011,8 +1136,8 @@
 
   <footer>
     <div class="footer-inner">
-      <div>© GongllGong</div>
-      <div>사람들이 하고 싶은 것을 하게 해주는 회사</div>
+      <div>© GongllGong. All rights reserved.</div>
+      <div>사람들이 자기가 하고 싶은 일을 알게 되고, 실제로 하게 해주는 회사.</div>
     </div>
   </footer>
 </div>
